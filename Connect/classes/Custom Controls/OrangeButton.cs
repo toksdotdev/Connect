@@ -8,9 +8,13 @@ namespace Connect.classes.Custom_Controls
 {
     internal class OrangeButton
     {
-        private readonly Color _onClickColor;
-        private readonly Color _onHoverColor;
-        private readonly Color _onLeaveColor;
+        private readonly Color _onClickRectangleColor;
+        private readonly Color _onEnterRectangleColor;
+        private readonly Color _onLeaveRectangleColor;
+        private readonly Color _onClickLabelColor;
+        private readonly Color _onEnterLabelColor;
+        private readonly Color _onLeaveLabelColor;
+
         private readonly bool _containsPictureBox;
         private readonly RectangleShape _rectangleShape;
         private readonly Label _label;
@@ -18,19 +22,24 @@ namespace Connect.classes.Custom_Controls
         private int _guideTimer;
         private readonly PictureBox _pictureBox;
 
-        public OrangeButton(Panel panel, Color onClickColor, Color onHoverColor, Color onLeaveColor, bool containsPictureBox = false)
+        public OrangeButton(Panel panel, Color onClickColorRectangle, Color onEnterColorRectangle, Color onLeaveColorRectangle,
+           bool containsPictureBox = false, Color onClickLabelColor = default(Color), Color onEnterLabelColor = default(Color), Color onLeaveLabelColor = default(Color))
         {
+            _onEnterLabelColor = onEnterLabelColor;
             _timer.Enabled = true;
             _timer.Interval = 100;
 
-            _onClickColor = onClickColor;
-            _onHoverColor = onHoverColor;
-            _onLeaveColor = onLeaveColor;
+            _onClickRectangleColor = onClickColorRectangle;
+            _onEnterRectangleColor = onEnterColorRectangle;
+            _onLeaveRectangleColor = onLeaveColorRectangle;
+            _onClickLabelColor = onClickLabelColor;
+            _onEnterLabelColor = onEnterLabelColor;
+            _onLeaveLabelColor = onLeaveLabelColor;
             _containsPictureBox = containsPictureBox;
 
             var container = panel.Controls.OfType<ShapeContainer>().ToArray()[0];
             _rectangleShape = container.Shapes.OfType<RectangleShape>().ToArray()[0];
-
+            _rectangleShape.FillStyle = FillStyle.Solid;
             if (containsPictureBox) _pictureBox = panel.Controls.OfType<PictureBox>().ToArray()[0];
 
             _label = panel.Controls.OfType<Label>().ToArray()[0];
@@ -44,28 +53,31 @@ namespace Connect.classes.Custom_Controls
 
             _label.Click += RectangleShape1_Click;
             _label.MouseEnter += RectangleShape_MouseEnter;
-            _label.MouseLeave += RectangleShape1_MouseLeave;
+            //_label.MouseLeave += RectangleShape1_MouseLeave;
         }
 
         private void RectangleShape_MouseEnter(object sender, EventArgs e)
         {
-            _rectangleShape.FillColor = Color.DarkOrange;
-            _label.BackColor = Color.DarkOrange;
-            if (_containsPictureBox) _pictureBox.BackColor = Color.DarkOrange;
+            _rectangleShape.FillColor = _onEnterRectangleColor;
+            _label.BackColor = _onEnterRectangleColor;
+            _label.ForeColor = (_onEnterLabelColor != default(Color)) ? _onEnterLabelColor : _label.ForeColor;
+            if (_containsPictureBox) _pictureBox.BackColor = _onEnterRectangleColor;
         }
 
         private void RectangleShape1_MouseLeave(object sender, EventArgs e)
         {
-            _rectangleShape.FillColor = Color.FromArgb(255, 51, 0);
-            _label.BackColor = Color.FromArgb(255, 51, 0);
-            if (_containsPictureBox) _pictureBox.BackColor = Color.FromArgb(255, 51, 0);
+            _rectangleShape.FillColor = _onLeaveRectangleColor;
+            _label.BackColor = _onLeaveRectangleColor;
+            _label.ForeColor = (_onLeaveLabelColor != default(Color)) ? _onLeaveLabelColor : _label.ForeColor;
+            if (_containsPictureBox) _pictureBox.BackColor = _onLeaveRectangleColor;
         }
 
         public void RectangleShape1_Click(object sender, EventArgs e)
         {
-            _rectangleShape.FillColor = Color.DarkSlateGray;
-            _label.BackColor = Color.DarkSlateGray;
-            if (_containsPictureBox) _pictureBox.BackColor = Color.DarkSlateGray;
+            _rectangleShape.FillColor = _onClickRectangleColor;
+            _label.BackColor = _onClickRectangleColor;
+            _label.ForeColor = (_onClickLabelColor != default(Color)) ? _onClickLabelColor : _label.ForeColor;
+            if (_containsPictureBox) _pictureBox.BackColor = _onClickRectangleColor;
 
             _timer.Tick += delegate
             {

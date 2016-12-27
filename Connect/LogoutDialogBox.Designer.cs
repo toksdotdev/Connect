@@ -32,19 +32,28 @@ namespace Connect
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogoutDialogBox));
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TitleBar = new System.Windows.Forms.Panel();
             this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.ovalShape1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.panel1Btn = new System.Windows.Forms.Panel();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.panel2Btn = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TitleBar.SuspendLayout();
+            this.panel1Btn.SuspendLayout();
+            this.panel2Btn.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -67,9 +76,8 @@ namespace Connect
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape3,
             this.rectangleShape2,
-            this.rectangleShape1});
+            this.rectangleShape3});
             this.shapeContainer1.Size = new System.Drawing.Size(382, 214);
             this.shapeContainer1.TabIndex = 4;
             this.shapeContainer1.TabStop = false;
@@ -85,45 +93,16 @@ namespace Connect
             this.rectangleShape3.Name = "rectangleShape3";
             this.rectangleShape3.Size = new System.Drawing.Size(381, 213);
             // 
-            // rectangleShape2
-            // 
-            this.rectangleShape2.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.rectangleShape2.CornerRadius = 16;
-            this.rectangleShape2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rectangleShape2.FillColor = System.Drawing.Color.DarkSlateGray;
-            this.rectangleShape2.FillGradientColor = System.Drawing.Color.White;
-            this.rectangleShape2.Location = new System.Drawing.Point(208, 130);
-            this.rectangleShape2.Name = "rectangleShape2";
-            this.rectangleShape2.SelectionColor = System.Drawing.Color.Transparent;
-            this.rectangleShape2.Size = new System.Drawing.Size(81, 33);
-            this.rectangleShape2.MouseEnter += new System.EventHandler(this.rectangleShape_MouseEnter);
-            this.rectangleShape2.MouseLeave += new System.EventHandler(this.rectangleShape_MouseLeave);
-            // 
-            // rectangleShape1
-            // 
-            this.rectangleShape1.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.rectangleShape1.CornerRadius = 16;
-            this.rectangleShape1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rectangleShape1.FillColor = System.Drawing.Color.DarkSlateGray;
-            this.rectangleShape1.FillGradientColor = System.Drawing.Color.White;
-            this.rectangleShape1.Location = new System.Drawing.Point(94, 132);
-            this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.SelectionColor = System.Drawing.Color.Transparent;
-            this.rectangleShape1.Size = new System.Drawing.Size(81, 33);
-            this.rectangleShape1.Click += new System.EventHandler(this.rectangleShape1_Click);
-            this.rectangleShape1.MouseEnter += new System.EventHandler(this.rectangleShape_MouseEnter);
-            this.rectangleShape1.MouseLeave += new System.EventHandler(this.rectangleShape_MouseLeave);
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label2.Location = new System.Drawing.Point(115, 138);
+            this.label2.Location = new System.Drawing.Point(27, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 22);
             this.label2.TabIndex = 5;
@@ -137,15 +116,16 @@ namespace Connect
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label3.Location = new System.Drawing.Point(232, 138);
+            this.label3.Location = new System.Drawing.Point(234, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 22);
             this.label3.TabIndex = 6;
             this.label3.Text = "No";
+            this.label3.Visible = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Connect.Properties.Resources.Close_Window_50px;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(151, 31);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 50);
@@ -186,15 +166,110 @@ namespace Connect
             this.ovalShape1.Size = new System.Drawing.Size(12, 12);
             this.ovalShape1.Click += new System.EventHandler(this.ovalShape1_Click);
             // 
+            // panel1Btn
+            // 
+            this.panel1Btn.Controls.Add(this.label2);
+            this.panel1Btn.Controls.Add(this.shapeContainer2);
+            this.panel1Btn.Location = new System.Drawing.Point(81, 130);
+            this.panel1Btn.Name = "panel1Btn";
+            this.panel1Btn.Size = new System.Drawing.Size(88, 37);
+            this.panel1Btn.TabIndex = 9;
+            // 
+            // rectangleShape1
+            // 
+            this.rectangleShape1.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.rectangleShape1.CornerRadius = 16;
+            this.rectangleShape1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rectangleShape1.FillColor = System.Drawing.Color.White;
+            this.rectangleShape1.FillGradientColor = System.Drawing.Color.White;
+            this.rectangleShape1.Location = new System.Drawing.Point(4, 2);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.SelectionColor = System.Drawing.Color.Transparent;
+            this.rectangleShape1.Size = new System.Drawing.Size(81, 33);
+            // 
+            // shapeContainer2
+            // 
+            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape1});
+            this.shapeContainer2.Size = new System.Drawing.Size(88, 37);
+            this.shapeContainer2.TabIndex = 6;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // panel2Btn
+            // 
+            this.panel2Btn.Controls.Add(this.label4);
+            this.panel2Btn.Controls.Add(this.shapeContainer4);
+            this.panel2Btn.Location = new System.Drawing.Point(208, 130);
+            this.panel2Btn.Name = "panel2Btn";
+            this.panel2Btn.Size = new System.Drawing.Size(88, 37);
+            this.panel2Btn.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label4.Location = new System.Drawing.Point(27, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 22);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "No";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape4});
+            this.shapeContainer4.Size = new System.Drawing.Size(88, 37);
+            this.shapeContainer4.TabIndex = 6;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape4
+            // 
+            this.rectangleShape4.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.rectangleShape4.CornerRadius = 16;
+            this.rectangleShape4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rectangleShape4.FillColor = System.Drawing.Color.White;
+            this.rectangleShape4.FillGradientColor = System.Drawing.Color.White;
+            this.rectangleShape4.Location = new System.Drawing.Point(4, 2);
+            this.rectangleShape4.Name = "rectangleShape1";
+            this.rectangleShape4.SelectionColor = System.Drawing.Color.Transparent;
+            this.rectangleShape4.Size = new System.Drawing.Size(81, 33);
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.rectangleShape2.CornerRadius = 16;
+            this.rectangleShape2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rectangleShape2.FillColor = System.Drawing.Color.DarkSlateGray;
+            this.rectangleShape2.FillGradientColor = System.Drawing.Color.White;
+            this.rectangleShape2.Location = new System.Drawing.Point(151, 91);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.SelectionColor = System.Drawing.Color.Transparent;
+            this.rectangleShape2.Size = new System.Drawing.Size(81, 33);
+            this.rectangleShape2.Visible = false;
+            this.rectangleShape2.MouseEnter += new System.EventHandler(this.rectangleShape_MouseEnter);
+            this.rectangleShape2.MouseLeave += new System.EventHandler(this.rectangleShape_MouseLeave);
+            // 
             // LogoutDialogBox
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(382, 214);
+            this.Controls.Add(this.panel2Btn);
+            this.Controls.Add(this.panel1Btn);
             this.Controls.Add(this.TitleBar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -209,6 +284,10 @@ namespace Connect
             this.Shown += new System.EventHandler(this.Logout_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TitleBar.ResumeLayout(false);
+            this.panel1Btn.ResumeLayout(false);
+            this.panel1Btn.PerformLayout();
+            this.panel2Btn.ResumeLayout(false);
+            this.panel2Btn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,8 +297,6 @@ namespace Connect
 
         private Label label1;
         private ShapeContainer shapeContainer1;
-        private RectangleShape rectangleShape1;
-        private RectangleShape rectangleShape2;
         private Label label2;
         private Label label3;
         private PictureBox pictureBox1;
@@ -227,5 +304,13 @@ namespace Connect
         private Panel TitleBar;
         private ShapeContainer shapeContainer3;
         private OvalShape ovalShape1;
+        private Panel panel1Btn;
+        private ShapeContainer shapeContainer2;
+        private RectangleShape rectangleShape1;
+        private RectangleShape rectangleShape2;
+        private Panel panel2Btn;
+        private Label label4;
+        private ShapeContainer shapeContainer4;
+        private RectangleShape rectangleShape4;
     }
 }

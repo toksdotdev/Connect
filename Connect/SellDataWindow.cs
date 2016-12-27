@@ -1,10 +1,10 @@
 ﻿using Connect.classes.Custom_Controls;
 using Connect.classes.Form_Styling.Purchase_Window_Styles;
+using Connect.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Connect
@@ -16,7 +16,7 @@ namespace Connect
         public SellDataWindow()
         {
             InitializeComponent();
-            var orangeButton1 = new OrangeButton(panelOrangeBtn1, Color.DarkSlateGray, Color.DarkOrange, Color.FromArgb(255, 51, 0), true);
+            var orangeButton1 = new OrangeButton(panelOrangeBtn1, Color.DarkSlateGray, Color.DarkOrange, Color.FromArgb(255, 51, 0), containsPictureBox: true);
             orangeButton1.FillInProperties();
 
             _textBoxControlDictionaries.AddRange(new[]{
@@ -46,6 +46,8 @@ namespace Connect
             });
         }
 
+        #region Events
+
         private void checkBoxUnlimitedTime_CheckedChanged(object sender, EventArgs e)
         {
             var chkBox = sender as CheckBox;
@@ -58,11 +60,51 @@ namespace Connect
             _textBoxControlDictionaries.Find(cd => cd._txtBox.Equals((sender as TextBox))).VerifyInput();
         }
 
-        private void textBoxExpiryDateDay_TextChanged(object sender, EventArgs e)
+        private void textBoxExpiryDate_TextChanged(object sender, EventArgs e)
         {
-            {
-                _textBoxControlDictionaries.ElementAt(2).VerifyInput();//.Find(cd => cd._txtBox.Equals((sender as TextBox))).VerifyInput();
-            }
+            ((TextBoxGroupControlVerifier)_textBoxControlDictionaries.ElementAt(2)).VerifyInput();
         }
+
+        #region On Click and OnLeave Events for day, month and year textbox
+
+        private void textBoxExpiryDateDay_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBoxExpiryDateDay.Text.Equals(Resources.Day))
+                textBoxExpiryDateDay.Text = String.Empty;
+        }
+
+        private void textBoxExpiryDateDay_Leave(object sender, EventArgs e)
+        {
+            if (textBoxExpiryDateDay.Text.Equals(String.Empty))
+                textBoxExpiryDateDay.Text = Resources.Day;
+        }
+
+        private void textBoxExpiryDateMonth_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBoxExpiryDateMonth.Text.Equals(Resources.Month))
+                textBoxExpiryDateMonth.Text = String.Empty;
+        }
+
+        private void textBoxExpiryDateMonth_Leave(object sender, EventArgs e)
+        {
+            if (textBoxExpiryDateMonth.Text.Equals(String.Empty))
+                textBoxExpiryDateMonth.Text = Resources.Month;
+        }
+
+        private void textBoxExpiryDateYear_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBoxExpiryDateYear.Text.Equals(Resources.Year))
+                textBoxExpiryDateYear.Text = String.Empty;
+        }
+
+        private void textBoxExpiryDateYear_Leave(object sender, EventArgs e)
+        {
+            if (textBoxExpiryDateYear.Text.Equals(String.Empty))
+                textBoxExpiryDateYear.Text = Resources.Year;
+        }
+
+        #endregion On Click and OnLeave Events for day, month and year textbox
+
+        #endregion Events
     }
 }

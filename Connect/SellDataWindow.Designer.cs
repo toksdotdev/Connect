@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SellDataWindow));
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panelOrangeBtn1 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -102,7 +103,7 @@
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
-            this.pictureBox7.Image = global::Connect.Properties.Resources.Coins_32px_2;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(139, 4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(50, 39);
@@ -233,11 +234,13 @@
             this.textBoxExpiryDateDay.TabIndex = 25;
             this.textBoxExpiryDateDay.Text = "Day";
             this.textBoxExpiryDateDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxExpiryDateDay.TextChanged += new System.EventHandler(this.textBoxExpiryDateDay_TextChanged);
+            this.textBoxExpiryDateDay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxExpiryDateDay_MouseClick);
+            this.textBoxExpiryDateDay.TextChanged += new System.EventHandler(this.textBoxExpiryDate_TextChanged);
+            this.textBoxExpiryDateDay.Leave += new System.EventHandler(this.textBoxExpiryDateDay_Leave);
             // 
             // pictureBoxExpiryDate
             // 
-            this.pictureBoxExpiryDate.Image = global::Connect.Properties.Resources.Checkmark_14px;
+            this.pictureBoxExpiryDate.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxExpiryDate.Image")));
             this.pictureBoxExpiryDate.Location = new System.Drawing.Point(360, 89);
             this.pictureBoxExpiryDate.Name = "pictureBoxExpiryDate";
             this.pictureBoxExpiryDate.Size = new System.Drawing.Size(14, 14);
@@ -259,7 +262,9 @@
             this.textBoxExpiryDateYear.TabIndex = 8;
             this.textBoxExpiryDateYear.Text = "Year";
             this.textBoxExpiryDateYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxExpiryDateYear.TextChanged += new System.EventHandler(this.textBoxExpiryDateDay_TextChanged);
+            this.textBoxExpiryDateYear.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxExpiryDateYear_MouseClick);
+            this.textBoxExpiryDateYear.TextChanged += new System.EventHandler(this.textBoxExpiryDate_TextChanged);
+            this.textBoxExpiryDateYear.Leave += new System.EventHandler(this.textBoxExpiryDateYear_Leave);
             // 
             // textBoxExpiryDateMonth
             // 
@@ -274,7 +279,9 @@
             this.textBoxExpiryDateMonth.TabIndex = 5;
             this.textBoxExpiryDateMonth.Text = "Month";
             this.textBoxExpiryDateMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxExpiryDateMonth.TextChanged += new System.EventHandler(this.textBoxExpiryDateDay_TextChanged);
+            this.textBoxExpiryDateMonth.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxExpiryDateMonth_MouseClick);
+            this.textBoxExpiryDateMonth.TextChanged += new System.EventHandler(this.textBoxExpiryDate_TextChanged);
+            this.textBoxExpiryDateMonth.Leave += new System.EventHandler(this.textBoxExpiryDateMonth_Leave);
             // 
             // label5
             // 
@@ -367,7 +374,7 @@
             // 
             // pictureBoxPassword
             // 
-            this.pictureBoxPassword.Image = global::Connect.Properties.Resources.Checkmark_14px;
+            this.pictureBoxPassword.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPassword.Image")));
             this.pictureBoxPassword.Location = new System.Drawing.Point(326, 40);
             this.pictureBoxPassword.Name = "pictureBoxPassword";
             this.pictureBoxPassword.Size = new System.Drawing.Size(14, 14);
@@ -437,7 +444,7 @@
             // 
             // pictureBoxUsename
             // 
-            this.pictureBoxUsename.Image = global::Connect.Properties.Resources.Checkmark_14px;
+            this.pictureBoxUsename.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUsename.Image")));
             this.pictureBoxUsename.Location = new System.Drawing.Point(326, 40);
             this.pictureBoxUsename.Name = "pictureBoxUsename";
             this.pictureBoxUsename.Size = new System.Drawing.Size(14, 14);

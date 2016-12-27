@@ -1,12 +1,8 @@
 ﻿using Connect.Properties;
 using Microsoft.VisualBasic.PowerPacks;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Connect.classes.Form_Styling.Purchase_Window_Styles
@@ -14,8 +10,7 @@ namespace Connect.classes.Form_Styling.Purchase_Window_Styles
     internal class TextBoxGroupControlVerifier : TextBoxControlVerifier
     {
         private new readonly TextBox[] _txtBox;
-        private readonly RectangleShape[] _rectangleShape;
-        private readonly PictureBox _iconPictureBox;
+        private readonly RectangleShape[] _rectangleShape; private readonly PictureBox _iconPictureBox;
         private readonly NumberStyles _style1;
         private readonly CustomNumberStyles[] _style2;
 
@@ -44,12 +39,28 @@ namespace Connect.classes.Form_Styling.Purchase_Window_Styles
 
             for (int i = 0; i < _txtBox.Length; i++)
             {
+                var isMatch = _style2 != null && Regex.Match(_txtBox[i].Text, "[0-9]", RegexOptions.IgnoreCase).Success;
+
+                uint text = (isMatch) ? Convert.ToUInt32(_txtBox[i].Text) : 0;
+
                 if (_style1 != NumberStyles.Any)
-                    passedTest =
-                        new TextBoxControlVerifier(_txtBox[i], _rectangleShape[i], null, _style1).VerifyInput();
+                {
+                    passedTest = new TextBoxControlVerifier(_txtBox[i], _rectangleShape[i], null, _style1).VerifyInput();
+                }
+                else if (_style2 != null && _style2[i].Equals(CustomNumberStyles.NotMoreThan31Days) && isMatch)
+                {
+                    passedTest = (text <= 31 && text >= 1);
+                }
+                else if (_style2 != null && _style2[i].Equals(CustomNumberStyles.MonthLimit) && isMatch)
+                {
+                    passedTest = (text <= 12 && text >= 1);
+                }
+                else if (_style2 != null && _style2[i].Equals(CustomNumberStyles.YearLimit) && isMatch)
+                {
+                    passedTest = (text <= 3000 && text >= DateTime.Now.Year);
+                }
                 else
-                    passedTest =
-                        new TextBoxControlVerifier(_txtBox[i], _rectangleShape[i], null, _style2[i]).VerifyInput();
+                    passedTest = false;
 
                 if (!passedTest) break;
             }

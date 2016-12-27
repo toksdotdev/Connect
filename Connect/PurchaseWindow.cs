@@ -21,7 +21,7 @@ namespace Connect
             InitializeComponent();
 
             //Creates Functionalaties for Custom Orange Button
-            var orangeButton1 = new OrangeButton(panelOrangeBtn1, Color.DarkSlateGray, Color.DarkOrange, Color.FromArgb(255, 51, 0), true);
+            var orangeButton1 = new OrangeButton(panelOrangeBtn1, Color.DarkSlateGray, Color.DarkOrange, Color.FromArgb(255, 51, 0), containsPictureBox: true);
             orangeButton1.FillInProperties();
 
             _textBoxControlDictionaries.AddRange(new[]{
@@ -96,7 +96,6 @@ namespace Connect
         {
             _textBoxControlDictionaries.Find(cd => cd._txtBox.Equals((sender as TextBox))).VerifyInput();
         }
-
 
         private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
         {

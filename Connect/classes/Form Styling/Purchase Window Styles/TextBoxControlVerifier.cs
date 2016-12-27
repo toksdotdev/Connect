@@ -1,10 +1,6 @@
-﻿using Accessibility;
-using Connect.Properties;
+﻿using Connect.Properties;
 using Microsoft.VisualBasic.PowerPacks;
-using System;
-using System.Data;
 using System.Globalization;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Connect.classes.Form_Styling.Purchase_Window_Styles
@@ -57,20 +53,9 @@ namespace Connect.classes.Form_Styling.Purchase_Window_Styles
                 {
                     int.TryParse(_txtBox.Text, _style1, new NumberFormatInfo(), out success);
                 }
-                else if (_style2.Equals(CustomNumberStyles.NotMoreThan31Days)
-                    && Regex.Match(_txtBox.Text, "[0-9]", RegexOptions.IgnoreCase).Success)
+                else if (_style1 == NumberStyles.Any)
                 {
-                    success = (Convert.ToInt32(_txtBox.Text) <= 31) && (Convert.ToInt32(_txtBox.Text) >= 1) ? 1 : 0;
-                }
-                else if (_style2.Equals(CustomNumberStyles.MonthLimit)
-                && Regex.Match(_txtBox.Text, "[0-9]", RegexOptions.IgnoreCase).Success)
-                {
-                    success = (Convert.ToInt32(_txtBox.Text) <= 12) && (Convert.ToInt32(_txtBox.Text) >= 1) ? 1 : 0;
-                }
-                else if (_style2.Equals(CustomNumberStyles.YearLimit)
-                && Regex.Match(_txtBox.Text, "[0-9]", RegexOptions.IgnoreCase).Success)
-                {
-                    success = (Convert.ToInt32(_txtBox.Text) <= 3000) && (Convert.ToInt32(_txtBox.Text) >= DateTime.Now.Year) ? 1 : 0;
+                    success = 1;
                 }
                 else if (_style1 != NumberStyles.Any)
                 {

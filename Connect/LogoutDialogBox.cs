@@ -1,4 +1,5 @@
-﻿using Connect.classes.TitleBar_Styling_And_Effects;
+﻿using Connect.classes.Custom_Controls;
+using Connect.classes.TitleBar_Styling_And_Effects;
 using Microsoft.VisualBasic.PowerPacks;
 using System;
 using System.Drawing;
@@ -19,6 +20,16 @@ namespace Connect
         {
             ToHideControl = controlToHide;
             InitializeComponent();
+
+            panel1Btn.Focus();
+
+            var btn1 = new OrangeButton(panel1Btn, Color.Empty, Color.DarkSlateGray, Color.White, false,
+                 Color.Empty, Color.White, Color.CornflowerBlue);
+            btn1.FillInProperties();
+
+            var btn2 = new OrangeButton(panel2Btn, Color.Empty, Color.DarkSlateGray, Color.White, false,
+                 Color.Empty, Color.White, Color.CornflowerBlue);
+            btn2.FillInProperties();
         }
 
         private void rectangleShape1_Click(object sender, EventArgs e)

@@ -264,6 +264,168 @@
   <ItemGroup>
     <None Include="Resources\Coins_32px_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\american-express1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_16px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buy_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_10px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_14px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_16px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cirrus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close Window_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coins_32px_21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Combo Chart_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_16px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Facebook_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward_16px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Google Maps_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout Rounded Left_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintenance_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Marker_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mastercard1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mestro1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money Bag_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monitor_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paypal21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Person Male_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings 3_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Twitter_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visa1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\american-express2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_16px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buy_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_10px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_14px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_16px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cirrus2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close Window_50px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coins_32px_22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Combo Chart_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_16px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Facebook_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward_16px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Google Maps_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout Rounded Left_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintenance_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Marker_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mastercard2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mestro2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money Bag_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monitor_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paypal22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Person Male_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings 3_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Twitter_32px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visa2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
