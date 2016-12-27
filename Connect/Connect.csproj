@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D7DF83C-8480-4325-AA39-17F28BD01BE5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Connect</RootNamespace>
+    <AssemblyName>Connect</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="classes\Custom Controls\OrangeButton.cs" />
+    <Compile Include="classes\Custom Controls\ScrollablePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="classes\Custom Controls\ScrollablePanel.Designer.cs">
+      <DependentUpon>ScrollablePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="classes\Data Calculator\CalculatePrice.cs" />
+    <Compile Include="classes\Form Styling\Purchase Window Styles\TextBoxControlVerifier.cs" />
+    <Compile Include="classes\Form Styling\Purchase Window Styles\TextBoxGroupControlVerifier.cs" />
+    <Compile Include="classes\Main Page\styling\ActivePanel.cs" />
+    <Compile Include="classes\TitleBar Styling And Effects\DraggableTitleBar.cs" />
+    <Compile Include="ProfileWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileWindow.Designer.cs">
+      <DependentUpon>ProfileWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogoutDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogoutDialogBox.Designer.cs">
+      <DependentUpon>LogoutDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginAndRegisterWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginAndRegisterWindow.Designer.cs">
+      <DependentUpon>LoginAndRegisterWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseWindow.Designer.cs">
+      <DependentUpon>PurchaseWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SellDataWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SellDataWindow.Designer.cs">
+      <DependentUpon>SellDataWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="classes\Custom Controls\ScrollablePanel.resx">
+      <DependentUpon>ScrollablePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileWindow.resx">
+      <DependentUpon>ProfileWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogoutDialogBox.resx">
+      <DependentUpon>LogoutDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginAndRegisterWindow.resx">
+      <DependentUpon>LoginAndRegisterWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="PurchaseWindow.resx">
+      <DependentUpon>PurchaseWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SellDataWindow.resx">
+      <DependentUpon>SellDataWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Facebook_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Twitter_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Facebook_48px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Twitter_48px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok_48px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money Bag_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Facebook_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Twitter_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Marker_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintenance_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Google Maps_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings 3_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Combo Chart_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monitor_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buy_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Person Male_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spinner Frame 2_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout Rounded Left_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close Window_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\me.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cirrus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mastercard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mestro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paypal2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\american-express.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_10px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_14px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coins_32px_2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,16 @@
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\bin\Debug\Connect.exe.config
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\bin\Debug\Connect.exe
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\bin\Debug\Connect.pdb
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\obj\Debug\Connect.Properties.Resources.resources
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\obj\Debug\Connect.csproj.GenerateResource.Cache
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\obj\Debug\Connect.exe
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\obj\Debug\Connect.pdb
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\obj\Debug\Connect.LogoutDialogBox.resources
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\obj\Debug\Connect.MainWindow.resources
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\obj\Debug\Connect.LoginAndRegisterWindow.resources
+c:\users\programming\documents\visual studio 2012\Projects\Connect\Connect\obj\Debug\Connect.classes.Custom_Controls.ScrollablePanel.resources
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\obj\Debug\Connect.ProfileWindow.resources
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\obj\Debug\Connect.PurchaseWindow.resources
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\obj\Debug\Connect.exe.licenses
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\obj\Debug\Connect.csprojResolveAssemblyReference.cache
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\obj\Debug\Connect.SellDataWindow.resources
