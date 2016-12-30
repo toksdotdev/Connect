@@ -71,6 +71,9 @@ namespace Connect
             this.ovalShape3 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.ovalShape2 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.ovalShape1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.LabelConnectionHolder = new System.Windows.Forms.Label();
+            this.LabelConnectionStatus = new System.Windows.Forms.Label();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.m1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.m2.SuspendLayout();
@@ -364,6 +367,7 @@ namespace Connect
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel2.Controls.Add(this.buttonLogin);
             this.panel2.Controls.Add(this.m5);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.m1);
@@ -479,6 +483,8 @@ namespace Connect
             // TitleBar
             // 
             this.TitleBar.BackColor = System.Drawing.SystemColors.WindowText;
+            this.TitleBar.Controls.Add(this.LabelConnectionStatus);
+            this.TitleBar.Controls.Add(this.LabelConnectionHolder);
             this.TitleBar.Controls.Add(this.pictureBox11);
             this.TitleBar.Controls.Add(this.pictureBox10);
             this.TitleBar.Controls.Add(this.pictureBox1);
@@ -570,6 +576,38 @@ namespace Connect
             this.ovalShape1.Size = new System.Drawing.Size(12, 12);
             this.ovalShape1.Click += new System.EventHandler(this.ovalShape1_Click);
             // 
+            // LabelConnectionHolder
+            // 
+            this.LabelConnectionHolder.AutoSize = true;
+            this.LabelConnectionHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelConnectionHolder.ForeColor = System.Drawing.Color.OrangeRed;
+            this.LabelConnectionHolder.Location = new System.Drawing.Point(637, 9);
+            this.LabelConnectionHolder.Name = "LabelConnectionHolder";
+            this.LabelConnectionHolder.Size = new System.Drawing.Size(115, 13);
+            this.LabelConnectionHolder.TabIndex = 7;
+            this.LabelConnectionHolder.Text = "Connection Status:";
+            // 
+            // LabelConnectionStatus
+            // 
+            this.LabelConnectionStatus.AutoSize = true;
+            this.LabelConnectionStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelConnectionStatus.ForeColor = System.Drawing.Color.White;
+            this.LabelConnectionStatus.Location = new System.Drawing.Point(758, 9);
+            this.LabelConnectionStatus.Name = "LabelConnectionStatus";
+            this.LabelConnectionStatus.Size = new System.Drawing.Size(85, 13);
+            this.LabelConnectionStatus.TabIndex = 11;
+            this.LabelConnectionStatus.Text = "Disconnected";
+            // 
+            // buttonLogin
+            // 
+            this.buttonLogin.Location = new System.Drawing.Point(58, 383);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogin.TabIndex = 12;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,6 +697,9 @@ namespace Connect
         private PictureBox pictureBox12;
         private Label labelLogout;
         private Panel m55;
+        private Label LabelConnectionHolder;
+        private Label LabelConnectionStatus;
+        private Button buttonLogin;
 
     }
 }

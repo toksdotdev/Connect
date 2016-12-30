@@ -1,5 +1,8 @@
-﻿using Connect.classes.Main_Page.styling;
+﻿using Connect.classes.Api.InternetLogin;
+using Connect.classes.Custom_Controls;
+using Connect.classes.Main_Page.styling;
 using Connect.classes.TitleBar_Styling_And_Effects;
+using Connect.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,6 +11,8 @@ namespace Connect
 {
     public partial class MainWindow : Form
     {
+        private bool _hasCompleted = true;
+
         public MainWindow(bool signedIn)
         {
             InitializeComponent();
@@ -185,6 +190,27 @@ namespace Connect
 
             //this.DisposeControls(windowFormToActivate, addToParentForm);
             panelVersion.BackColor = Color.WhiteSmoke; label5.BackColor = Color.WhiteSmoke;
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            var loadingLbl = new LoadingLabel(LabelConnectionStatus, 200, "Connecting");
+            loadingLbl.Start();
+            _hasCompleted = false;
+
+            var a = new classes.Api.InternetLogin.Connect("ebuka", "pass");
+
+            a.ConnectAsync().ContinueWith((result) =>
+           {
+               loadingLbl.Stop();
+
+               BeginInvoke((MethodInvoker)delegate
+               {
+                   LabelConnectionStatus.Text = result.Result
+                                      ? Resources.Connected
+                                      : Resources.Disconnected;
+               });
+           });
         }
     }
 }

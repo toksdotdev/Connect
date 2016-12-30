@@ -21,6 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Api\Internet Connection\InternetConnectionStatus.cs" />
+    <Compile Include="classes\Api\InternetLogin\Connect.cs" />
+    <Compile Include="classes\Api\InternetLogin\Ping.cs" />
+    <Compile Include="classes\Custom Controls\LoadingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="classes\Custom Controls\OrangeButton.cs" />
     <Compile Include="classes\Custom Controls\ScrollablePanel.cs">
       <SubType>UserControl</SubType>

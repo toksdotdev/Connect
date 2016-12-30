@@ -161,6 +161,15 @@ namespace Connect.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connected.
+        /// </summary>
+        internal static string Connected {
+            get {
+                return ResourceManager.GetString("Connected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CVV.
         /// </summary>
         internal static string Cvv {
@@ -185,6 +194,15 @@ namespace Connect.Properties {
             get {
                 object obj = ResourceManager.GetObject("Delete_16px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disconnected.
+        /// </summary>
+        internal static string Disconnected {
+            get {
+                return ResourceManager.GetString("Disconnected", resourceCulture);
             }
         }
         
@@ -215,6 +233,24 @@ namespace Connect.Properties {
             get {
                 object obj = ResourceManager.GetObject("Google_Maps_32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to www.internetlogin1.edu.cu.ng.
+        /// </summary>
+        internal static string InternetLogin1 {
+            get {
+                return ResourceManager.GetString("InternetLogin1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to www.internetlogin2.edu.cu.ng.
+        /// </summary>
+        internal static string InternetLogin2 {
+            get {
+                return ResourceManager.GetString("InternetLogin2", resourceCulture);
             }
         }
         
