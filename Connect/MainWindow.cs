@@ -198,19 +198,18 @@ namespace Connect
             loadingLbl.Start();
             _hasCompleted = false;
 
-            var a = new classes.Api.InternetLogin.Connect("ebuka", "pass");
+            var a = new classes.Api.InternetLogin.Connect("ebuka", "pass")
+               .ConnectAsync().ContinueWith((result) =>
+              {
+                  BeginInvoke((MethodInvoker)delegate
+                  {
+                      loadingLbl.Stop();
 
-            a.ConnectAsync().ContinueWith((result) =>
-           {
-               loadingLbl.Stop();
-
-               BeginInvoke((MethodInvoker)delegate
-               {
-                   LabelConnectionStatus.Text = result.Result
-                                      ? Resources.Connected
-                                      : Resources.Disconnected;
-               });
-           });
+                      LabelConnectionStatus.Text = result.Result
+                                         ? Resources.Connected
+                                         : Resources.Disconnected;
+                  });
+              });
         }
     }
 }

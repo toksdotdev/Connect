@@ -18,7 +18,7 @@ namespace Connect.classes.Api.InternetLogin
         private readonly Timer _timer = new Timer();
         private bool _hasStartedTimer;
         private int _timeOutSeconds = 20;
-        private string _serverStringUri = "http://localhost/connect/server.php";
+        private string _serverStringUri;
 
         #endregion Variable Declarations
 
@@ -48,35 +48,47 @@ namespace Connect.classes.Api.InternetLogin
 
         public async Task<bool> ConnectAsync()
         {
-            //var pingResult = await new Ping().PingNow();
-            //if (pingResult != null && pingResult.Item1 != null)
-            //    _serverStringUri = pingResult.Item1;
-            //else
-            //    return false;
             byte[] lenght = null;
-            try
-            {
-                _loginInfo = new NameValueCollection(2)
+            bool hasPingedFailed = false;
+
+            await new Ping().PingNow()
+                .ContinueWith(async (pingResult) =>
                 {
-                    {"username", _username},
-                    {"password", _password}
-                };
+                    if (pingResult.Result != null && pingResult.Result.Item1 != null)
+                    {
+                        _serverStringUri = pingResult.Result.Item1;
+                    }
+                    else
+                    {
+                        hasPingedFailed = true;
+                        return false;
+                    }
 
-                if (!_hasStartedTimer) _timer.Start();
-                _hasStartedTimer = true;
+                    try
+                    {
+                        _loginInfo = new NameValueCollection(2)
+                        {
+                            {"username", _username},
+                            {"password", _password}
+                        };
 
-                lenght =
-                    await
+                        if (!_hasStartedTimer) _timer.Start();
+                        _hasStartedTimer = true;
+
+                        lenght =
+                        await
                         _client.UploadValuesTaskAsync(new Uri(_serverStringUri), "POST", _loginInfo);
-            }
-            catch (Exception)
-            {
-                _success = false;
-            }
+                    }
+                    catch (Exception)
+                    {
+                        _success = false;
+                    }
+                    return _success;
+                });
 
-            if (lenght != null) return _success = true;
+            if (lenght != null) _success = true;
 
-            if (_timeOutSeconds > 0)
+            if (_timeOutSeconds > 0 && !_success && !hasPingedFailed)
             {
                 await ConnectAsync()
                     .ContinueWith((result) =>
