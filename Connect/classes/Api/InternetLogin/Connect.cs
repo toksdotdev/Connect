@@ -77,7 +77,7 @@ namespace Connect.classes.Api.InternetLogin
 
                         lenght =
                         await
-                        _client.UploadValuesTaskAsync(new Uri("http://localhost/connect/server.php"), "POST", _loginInfo);
+                        _client.UploadValuesTaskAsync(new Uri(_serverStringUri), "POST", _loginInfo);
                     }
                     catch (Exception)
                     {

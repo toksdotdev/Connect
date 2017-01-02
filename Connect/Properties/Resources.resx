@@ -231,4 +231,7 @@
   <data name="InternetLogin2" xml:space="preserve">
     <value>www.internetlogin2.edu.cu.ng</value>
   </data>
+  <data name="PingUri" xml:space="preserve">
+    <value>www.connect.ng</value>
+  </data>
 </root>

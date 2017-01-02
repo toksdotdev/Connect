@@ -9,7 +9,7 @@ namespace Connect.classes.Api.InternetLogin
     internal class Ping
     {
         private readonly string _login1 = Resources.InternetLogin1;
-        private readonly string _login2 = "localhost";
+        private readonly string _login2 = Resources.InternetLogin2;
 
         /// <summary>
         ///Bings Login 1 and Login 2 together, and gets the one that is alive out of the two,to connect to
@@ -22,10 +22,10 @@ namespace Connect.classes.Api.InternetLogin
         public async Task<Tuple<string, string>> PingNow()
         {
             //check if the device has internet Connection on the device
-            //if (!InternetConnectionStatus.Connected())
-            //{
-            //    return new Tuple<string, string>(null, "No Internet Connection");
-            //}
+            if (!InternetConnectionStatus.Connected())
+            {
+                return new Tuple<string, string>(null, "No Internet Connection");
+            }
 
             Tuple<string, string> uri = null;
 

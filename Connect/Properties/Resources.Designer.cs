@@ -374,6 +374,15 @@ namespace Connect.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to www.connect.ng.
+        /// </summary>
+        internal static string PingUri {
+            get {
+                return ResourceManager.GetString("PingUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 50.
         /// </summary>
         internal static string PricePer100MB {

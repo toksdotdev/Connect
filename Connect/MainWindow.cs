@@ -5,6 +5,7 @@ using Connect.classes.TitleBar_Styling_And_Effects;
 using Connect.Properties;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Connect
@@ -20,13 +21,19 @@ namespace Connect
             set
             {
                 _connected = value;
+
                 if (_connected)
                 {
                     try
                     {
-                        _connectionNotifier = new ConnectionNotifier();
+                        if (_connectionNotifier == null)
+                            _connectionNotifier = new ConnectionNotifier();
+
                         _connectionNotifier.StartNotifier()
-                            .ContinueWith((isConnected) => { Connected = isConnected.Result; });
+                            .ContinueWith((isConnected) =>
+                            {
+                                if (!isConnected.Result) Connected = isConnected.Result;
+                            });
                     }
                     catch (Exception e)
                     {
@@ -36,6 +43,11 @@ namespace Connect
                 else
                 {
                     if (_connectionNotifier != null) _connectionNotifier.StopNotifier();
+
+                    BeginInvoke((MethodInvoker)delegate
+                    {
+                        LabelConnectionStatus.Text = Resources.Disconnected;
+                    });
                 }
             }
         }
@@ -53,7 +65,7 @@ namespace Connect
                 labelProfile_Click(this, new EventArgs());
         }
 
-        private void ChangeToActiveTab(Panel panelToChangeColor, Color toChangeToColor)
+        private static void ChangeToActiveTab(Panel panelToChangeColor, Color toChangeToColor)
         {
             panelToChangeColor.BackColor = toChangeToColor;
         }
@@ -103,7 +115,7 @@ namespace Connect
             ChangeToActiveTab(m1, m11.BackColor);
 
             //shows The PurchaseWindow as Active Screen / Panel
-            this.ChangeActivePanel(new PurchaseWindow());
+            ChangeActivePanel(new PurchaseWindow());
         }
 
         private void labelSell_Click(object sender, EventArgs e)
@@ -115,7 +127,7 @@ namespace Connect
             ChangeToActiveTab(m2, m22.BackColor);
 
             //shows The SellDataWindow as Active Screen / Panel
-            this.ChangeActivePanel(new SellDataWindow());
+            ChangeActivePanel(new SellDataWindow());
         }
 
         private void labelProfile_Click(object sender, EventArgs e)
@@ -127,7 +139,7 @@ namespace Connect
             ChangeToActiveTab(m3, m33.BackColor);
 
             //shows The ProfileWindow as Active Screen / Panel
-            this.ChangeActivePanel(new ProfileWindow());
+            ChangeActivePanel(new ProfileWindow());
         }
 
         private void labelSettings_Click(object sender, EventArgs e)
@@ -148,7 +160,7 @@ namespace Connect
             ChangeToActiveTab(m5, m55.BackColor);
 
             //shows the logout dialogBox
-            this.ChangeActivePanel(new LogoutDialogBox(panel1), true,
+            ChangeActivePanel(new LogoutDialogBox(panel1), true,
                 (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Left));
         }
 
@@ -223,20 +235,25 @@ namespace Connect
         {
             var loadingLbl = new LoadingLabel(LabelConnectionStatus, 200, "Connecting");
             loadingLbl.Start();
-            var a = new classes.Api.InternetLogin.Connect("ebuka", "pass")
-               .ConnectAsync().ContinueWith((result) =>
-              {
-                  BeginInvoke((MethodInvoker)delegate
-                  {
-                      loadingLbl.Stop();
+            new classes.Api.InternetLogin.Connect("ebuka", "pass")
+                .ConnectAsync().ContinueWith((result) =>
+                {
+                    BeginInvoke((MethodInvoker)delegate
+                    {
+                        loadingLbl.Stop();
 
-                      Connected = result.Result;
+                        LabelConnectionStatus.Text = result.Result
+                            ? Resources.Connected
+                            : Resources.Disconnected;
+                    });
 
-                      LabelConnectionStatus.Text = result.Result
-                                         ? Resources.Connected
-                                         : Resources.Disconnected;
-                  });
-              });
+                    //user asynchronous thread sleeps for 10 seconds, to ensure that all preocesses required
+                    //to connect to the world internet are accomplished
+                    //i.e. the loading time
+                    if (result.Result) Thread.Sleep(10000);
+
+                    Connected = result.Result;
+                });
         }
     }
 }
