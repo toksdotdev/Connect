@@ -79,8 +79,50 @@ create table Data_Usage_Log
 ---list of all the withrawals that have been made in times past---
 create table Withrawal_Table
 (
-	iD_U_Lid int IDENTITY(0000000000000001,1) CONSTRAINT cWithdrawal_TablePk PRIMARY KEY,
+	iW_Tid int IDENTITY(0000000000000001,1) CONSTRAINT cWithdrawal_TablePk PRIMARY KEY,
 	iFKUser_DetailsId int constraint fkUser_Details_for_withdrawal  Foreign key references User_Details(iU_Did) not null, --foreign key to the person / userId who used the data to browse, that is buyer---
 	iUserId int not null, --insert foreign key here
 	mAmountWithrawn money not null,
+)
+
+
+
+
+---the following databses below will go to google forms server---
+
+---contains the Account Type for user on offline device e.g. buyer, seller e.t.c.---
+create table Account_Type_OfflineTable
+(
+	iA_Tid int IDENTITY(001,1) CONSTRAINT cOfflineAccount_TypePk PRIMARY KEY,
+	vcType varchar(20) not null
+)
+
+create table User_Details_OfflineTable
+(
+	iU_Did int IDENTITY(0000000000000001,1) CONSTRAINT cUser_DetailsOfflineTablePk PRIMARY KEY,
+	iFK_AccountTypeId int constraint fkOfflineAccount_Type  Foreign key references Account_Type_OfflineTable(iA_Tid) not null,
+	vcFirstName varchar(30) not null,
+	vcLastName varchar(30) not null,
+	vcEmail varchar(50) not null,
+	vcProfilePicturePath varchar,
+	vcAddress varchar,
+	vcCountry varchar,
+	vcState varchar,
+	vcZipCode varchar,
+)
+
+create table Buyer_Details_OfflineTable
+(
+	iFKBuyer_DetailsId int constraint fkUser_Details_for_BuyerOffline  Foreign key references User_Details_OfflineTable(iU_Did) not null, --foreign key to the person / userId of SYSTEM OWNER---
+	dDataBought decimal not null,
+	dDataUsed decimal not null,
+	iHasExpired bit not null,
+)
+
+create table Sellers_Login_OfflineTable
+(
+	iFKUser_DetailsId int constraint fkUser_Details_for_SellerOffline  Foreign key references User_Details_OfflineTable(iU_Did) not null, --foreign key to the person / userId of SYSTEM OWNER---
+	dDataSizeAsAtTimeOfUpload decimal not null,
+	dDataUsedByCustomers decimal not null, --data sold thus far--
+	iHasExpired bit not null,
 )
