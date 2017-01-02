@@ -22,10 +22,10 @@ namespace Connect.classes.Api.InternetLogin
         public async Task<Tuple<string, string>> PingNow()
         {
             //check if the device has internet Connection on the device
-            if (!InternetConnectionStatus.Connected())
-            {
-                return new Tuple<string, string>(null, "No Internet Connection");
-            }
+            //if (!InternetConnectionStatus.Connected())
+            //{
+            //    return new Tuple<string, string>(null, "No Internet Connection");
+            //}
 
             Tuple<string, string> uri = null;
 

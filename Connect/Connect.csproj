@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="classes\Api\Internet Connection\InternetConnectionStatus.cs" />
     <Compile Include="classes\Api\InternetLogin\Connect.cs" />
+    <Compile Include="classes\Api\Internet Connection\ConnectionNotifier.cs" />
     <Compile Include="classes\Api\InternetLogin\Ping.cs" />
     <Compile Include="classes\Custom Controls\LoadingLabel.cs">
       <SubType>Component</SubType>

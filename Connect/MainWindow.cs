@@ -1,4 +1,4 @@
-﻿using Connect.classes.Api.InternetLogin;
+﻿using Connect.classes.Api.Internet_Connection;
 using Connect.classes.Custom_Controls;
 using Connect.classes.Main_Page.styling;
 using Connect.classes.TitleBar_Styling_And_Effects;
@@ -11,7 +11,34 @@ namespace Connect
 {
     public partial class MainWindow : Form
     {
-        private bool _hasCompleted = true;
+        private bool _connected;
+        private ConnectionNotifier _connectionNotifier;
+
+        private bool Connected
+        {
+            get { return _connected; }
+            set
+            {
+                _connected = value;
+                if (_connected)
+                {
+                    try
+                    {
+                        _connectionNotifier = new ConnectionNotifier();
+                        _connectionNotifier.StartNotifier()
+                            .ContinueWith((isConnected) => { Connected = isConnected.Result; });
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                }
+                else
+                {
+                    if (_connectionNotifier != null) _connectionNotifier.StopNotifier();
+                }
+            }
+        }
 
         public MainWindow(bool signedIn)
         {
@@ -196,14 +223,14 @@ namespace Connect
         {
             var loadingLbl = new LoadingLabel(LabelConnectionStatus, 200, "Connecting");
             loadingLbl.Start();
-            _hasCompleted = false;
-
             var a = new classes.Api.InternetLogin.Connect("ebuka", "pass")
                .ConnectAsync().ContinueWith((result) =>
               {
                   BeginInvoke((MethodInvoker)delegate
                   {
                       loadingLbl.Stop();
+
+                      Connected = result.Result;
 
                       LabelConnectionStatus.Text = result.Result
                                          ? Resources.Connected
