@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="149391e6d14f4179bfe4692302d5b9d7" Name="Diagram1">
+        <EntityTypeShape EntityType="ConnectOfflineDBModel.Account_Type_OfflineTable" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectOfflineDBModel.Buyer_Details_OfflineTable" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectOfflineDBModel.Sellers_Login_OfflineTable" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectOfflineDBModel.User_Details_OfflineTable" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="ConnectOfflineDBModel.fkOfflineAccount_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="ConnectOfflineDBModel.fkUser_Details_for_BuyerOffline" ManuallyRouted="false" />
+        <AssociationConnector Association="ConnectOfflineDBModel.fkUser_Details_for_SellerOffline" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

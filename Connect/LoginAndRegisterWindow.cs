@@ -1,4 +1,5 @@
-﻿using Connect.classes.Custom_Controls;
+﻿using Connect.classes.Account;
+using Connect.classes.Custom_Controls;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -14,6 +15,11 @@ namespace Connect
 
             var orangeButton2 = new OrangeButton(panelOrangeBtn2, Color.DarkSlateGray, Color.DarkOrange, Color.FromArgb(255, 51, 0));
             orangeButton2.FillInProperties();
+        }
+
+        private void rectangleShape5_Click(object sender, System.EventArgs e)
+        {
+            Register a = new Register("","","","");
         }
     }
 }

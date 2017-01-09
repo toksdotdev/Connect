@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OfflineConnectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OfflineConnectModelStoreContainer">
+    <EntitySet Name="Account_Type_OfflineTable" EntityType="OfflineConnectModel.Store.Account_Type_OfflineTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Buyer_Details_OfflineTable" EntityType="OfflineConnectModel.Store.Buyer_Details_OfflineTable" store:Type="Tables" store:Schema="dbo" store:Name="Buyer_Details_OfflineTable">
+      <DefiningQuery>SELECT 
+      [Buyer_Details_OfflineTable].[iFKBuyer_DetailsId] AS [iFKBuyer_DetailsId], 
+      [Buyer_Details_OfflineTable].[dDataBought] AS [dDataBought], 
+      [Buyer_Details_OfflineTable].[dDataUsed] AS [dDataUsed], 
+      [Buyer_Details_OfflineTable].[iHasExpired] AS [iHasExpired]
+      FROM [dbo].[Buyer_Details_OfflineTable] AS [Buyer_Details_OfflineTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Sellers_Login_OfflineTable" EntityType="OfflineConnectModel.Store.Sellers_Login_OfflineTable" store:Type="Tables" store:Schema="dbo" store:Name="Sellers_Login_OfflineTable">
+      <DefiningQuery>SELECT 
+      [Sellers_Login_OfflineTable].[iFKUser_DetailsId] AS [iFKUser_DetailsId], 
+      [Sellers_Login_OfflineTable].[dDataSizeAsAtTimeOfUpload] AS [dDataSizeAsAtTimeOfUpload], 
+      [Sellers_Login_OfflineTable].[dDataUsedByCustomers] AS [dDataUsedByCustomers], 
+      [Sellers_Login_OfflineTable].[iHasExpired] AS [iHasExpired]
+      FROM [dbo].[Sellers_Login_OfflineTable] AS [Sellers_Login_OfflineTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="User_Details_OfflineTable" EntityType="OfflineConnectModel.Store.User_Details_OfflineTable" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="fkOfflineAccount_Type" Association="OfflineConnectModel.Store.fkOfflineAccount_Type">
+      <End Role="Account_Type_OfflineTable" EntitySet="Account_Type_OfflineTable" />
+      <End Role="User_Details_OfflineTable" EntitySet="User_Details_OfflineTable" />
+    </AssociationSet>
+    <AssociationSet Name="fkUser_Details_for_BuyerOffline" Association="OfflineConnectModel.Store.fkUser_Details_for_BuyerOffline">
+      <End Role="User_Details_OfflineTable" EntitySet="User_Details_OfflineTable" />
+      <End Role="Buyer_Details_OfflineTable" EntitySet="Buyer_Details_OfflineTable" />
+    </AssociationSet>
+    <AssociationSet Name="fkUser_Details_for_SellerOffline" Association="OfflineConnectModel.Store.fkUser_Details_for_SellerOffline">
+      <End Role="User_Details_OfflineTable" EntitySet="User_Details_OfflineTable" />
+      <End Role="Sellers_Login_OfflineTable" EntitySet="Sellers_Login_OfflineTable" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Account_Type_OfflineTable">
+    <Key>
+      <PropertyRef Name="iA_Tid" />
+    </Key>
+    <Property Name="iA_Tid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vcType" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Connect.dbo.Buyer_Details_OfflineTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Buyer_Details_OfflineTable">
+    <Key>
+      <PropertyRef Name="iFKBuyer_DetailsId" />
+      <PropertyRef Name="dDataBought" />
+      <PropertyRef Name="dDataUsed" />
+      <PropertyRef Name="iHasExpired" />
+    </Key>
+    <Property Name="iFKBuyer_DetailsId" Type="int" Nullable="false" />
+    <Property Name="dDataBought" Type="decimal" Nullable="false" />
+    <Property Name="dDataUsed" Type="decimal" Nullable="false" />
+    <Property Name="iHasExpired" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Connect.dbo.Sellers_Login_OfflineTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Sellers_Login_OfflineTable">
+    <Key>
+      <PropertyRef Name="iFKUser_DetailsId" />
+      <PropertyRef Name="dDataSizeAsAtTimeOfUpload" />
+      <PropertyRef Name="dDataUsedByCustomers" />
+      <PropertyRef Name="iHasExpired" />
+    </Key>
+    <Property Name="iFKUser_DetailsId" Type="int" Nullable="false" />
+    <Property Name="dDataSizeAsAtTimeOfUpload" Type="decimal" Nullable="false" />
+    <Property Name="dDataUsedByCustomers" Type="decimal" Nullable="false" />
+    <Property Name="iHasExpired" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Details_OfflineTable">
+    <Key>
+      <PropertyRef Name="iU_Did" />
+    </Key>
+    <Property Name="iU_Did" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="iFK_AccountTypeId" Type="int" Nullable="false" />
+    <Property Name="vcFirstName" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="vcLastName" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="vcEmail" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="vcProfilePicturePath" Type="varchar" MaxLength="1" />
+    <Property Name="vcAddress" Type="varchar" MaxLength="1" />
+    <Property Name="vcCountry" Type="varchar" MaxLength="1" />
+    <Property Name="vcState" Type="varchar" MaxLength="1" />
+    <Property Name="vcZipCode" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <Association Name="fkOfflineAccount_Type">
+    <End Role="Account_Type_OfflineTable" Type="OfflineConnectModel.Store.Account_Type_OfflineTable" Multiplicity="1" />
+    <End Role="User_Details_OfflineTable" Type="OfflineConnectModel.Store.User_Details_OfflineTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account_Type_OfflineTable">
+        <PropertyRef Name="iA_Tid" />
+      </Principal>
+      <Dependent Role="User_Details_OfflineTable">
+        <PropertyRef Name="iFK_AccountTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkUser_Details_for_BuyerOffline">
+    <End Role="User_Details_OfflineTable" Type="OfflineConnectModel.Store.User_Details_OfflineTable" Multiplicity="1" />
+    <End Role="Buyer_Details_OfflineTable" Type="OfflineConnectModel.Store.Buyer_Details_OfflineTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Details_OfflineTable">
+        <PropertyRef Name="iU_Did" />
+      </Principal>
+      <Dependent Role="Buyer_Details_OfflineTable">
+        <PropertyRef Name="iFKBuyer_DetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkUser_Details_for_SellerOffline">
+    <End Role="User_Details_OfflineTable" Type="OfflineConnectModel.Store.User_Details_OfflineTable" Multiplicity="1" />
+    <End Role="Sellers_Login_OfflineTable" Type="OfflineConnectModel.Store.Sellers_Login_OfflineTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Details_OfflineTable">
+        <PropertyRef Name="iU_Did" />
+      </Principal>
+      <Dependent Role="Sellers_Login_OfflineTable">
+        <PropertyRef Name="iFKUser_DetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

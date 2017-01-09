@@ -11,6 +11,21 @@
     <AssemblyName>Connect</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,19 +49,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\Account\Register\Register.cs" />
+    <Compile Include="classes\Account\Register.cs" />
     <Compile Include="classes\Account\UserDetails\BasicDetails.cs" />
     <Compile Include="classes\Api\Internet Connection\InternetConnectionStatus.cs" />
     <Compile Include="classes\Api\InternetLogin\Connect.cs" />
     <Compile Include="classes\Api\Internet Connection\ConnectionNotifier.cs" />
     <Compile Include="classes\Api\InternetLogin\Ping.cs" />
+    <Compile Include="classes\Api\Synchronisation\Synchronise.cs" />
     <Compile Include="classes\Custom Controls\LoadingLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -62,6 +90,72 @@
     <Compile Include="classes\Form Styling\Purchase Window Styles\TextBoxGroupControlVerifier.cs" />
     <Compile Include="classes\Main Page\styling\ActivePanel.cs" />
     <Compile Include="classes\TitleBar Styling And Effects\DraggableTitleBar.cs" />
+    <Compile Include="Models\Account_Type.cs">
+      <DependentUpon>ConnectPersonalServerDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account_Type_OfflineTable.cs">
+      <DependentUpon>OfflineDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bank_Details.cs">
+      <DependentUpon>ConnectPersonalServerDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Buyer_Details.cs">
+      <DependentUpon>ConnectPersonalServerDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Buyer_Details_OfflineTable.cs">
+      <DependentUpon>OfflineDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConnectPersonalServerDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConnectPersonalServerDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConnectPersonalServerDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConnectPersonalServerDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConnectPersonalServerDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConnectPersonalServerDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Data_Usage_Log.cs">
+      <DependentUpon>ConnectPersonalServerDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OfflineDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OfflineDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OfflineDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OfflineDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OfflineDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OfflineDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sellers_Login.cs">
+      <DependentUpon>ConnectPersonalServerDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sellers_Login_OfflineTable.cs">
+      <DependentUpon>OfflineDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_Bank_Details.cs">
+      <DependentUpon>ConnectPersonalServerDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_Details.cs">
+      <DependentUpon>ConnectPersonalServerDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_Details_OfflineTable.cs">
+      <DependentUpon>OfflineDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Withrawal_Table.cs">
+      <DependentUpon>ConnectPersonalServerDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ProfileWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,8 +226,41 @@
     <EmbeddedResource Include="SellDataWindow.resx">
       <DependentUpon>SellDataWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="classes\Account\UserDetails\EF.Reverse.POCO.Core.ttinclude" />
-    <None Include="classes\Account\UserDetails\EF.Reverse.POCO.ttinclude" />
+    <EntityDeploy Include="Models\OfflineDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OfflineDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Models\ConnectPersonalServerDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ConnectPersonalServerDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\ConnectPersonalServerDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ConnectPersonalServerDBModel.edmx</DependentUpon>
+      <LastGenOutput>ConnectPersonalServerDBModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\ConnectPersonalServerDBModel.edmx.diagram">
+      <DependentUpon>ConnectPersonalServerDBModel.edmx</DependentUpon>
+    </None>
+    <None Include="Models\ConnectPersonalServerDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ConnectPersonalServerDBModel.edmx</DependentUpon>
+      <LastGenOutput>ConnectPersonalServerDBModel.cs</LastGenOutput>
+    </None>
+    <None Include="Models\OfflineDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OfflineDBModel.edmx</DependentUpon>
+      <LastGenOutput>OfflineDBModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\OfflineDBModel.edmx.diagram">
+      <DependentUpon>OfflineDBModel.edmx</DependentUpon>
+    </None>
+    <None Include="Models\OfflineDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OfflineDBModel.edmx</DependentUpon>
+      <LastGenOutput>OfflineDBModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -430,7 +557,33 @@
     <None Include="Resources\visa2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.4.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 4.0 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

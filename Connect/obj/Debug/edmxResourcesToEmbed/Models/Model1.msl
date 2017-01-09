@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OfflineConnectModelStoreContainer" CdmEntityContainer="ConnectEntities">
+    <EntitySetMapping Name="Account_Type_OfflineTable">
+      <EntityTypeMapping TypeName="OfflineConnectModel.Account_Type_OfflineTable">
+        <MappingFragment StoreEntitySet="Account_Type_OfflineTable">
+          <ScalarProperty Name="iA_Tid" ColumnName="iA_Tid" />
+          <ScalarProperty Name="vcType" ColumnName="vcType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buyer_Details_OfflineTable">
+      <EntityTypeMapping TypeName="OfflineConnectModel.Buyer_Details_OfflineTable">
+        <MappingFragment StoreEntitySet="Buyer_Details_OfflineTable">
+          <ScalarProperty Name="iFKBuyer_DetailsId" ColumnName="iFKBuyer_DetailsId" />
+          <ScalarProperty Name="dDataBought" ColumnName="dDataBought" />
+          <ScalarProperty Name="dDataUsed" ColumnName="dDataUsed" />
+          <ScalarProperty Name="iHasExpired" ColumnName="iHasExpired" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sellers_Login_OfflineTable">
+      <EntityTypeMapping TypeName="OfflineConnectModel.Sellers_Login_OfflineTable">
+        <MappingFragment StoreEntitySet="Sellers_Login_OfflineTable">
+          <ScalarProperty Name="iFKUser_DetailsId" ColumnName="iFKUser_DetailsId" />
+          <ScalarProperty Name="dDataSizeAsAtTimeOfUpload" ColumnName="dDataSizeAsAtTimeOfUpload" />
+          <ScalarProperty Name="dDataUsedByCustomers" ColumnName="dDataUsedByCustomers" />
+          <ScalarProperty Name="iHasExpired" ColumnName="iHasExpired" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Details_OfflineTable">
+      <EntityTypeMapping TypeName="OfflineConnectModel.User_Details_OfflineTable">
+        <MappingFragment StoreEntitySet="User_Details_OfflineTable">
+          <ScalarProperty Name="iU_Did" ColumnName="iU_Did" />
+          <ScalarProperty Name="iFK_AccountTypeId" ColumnName="iFK_AccountTypeId" />
+          <ScalarProperty Name="vcFirstName" ColumnName="vcFirstName" />
+          <ScalarProperty Name="vcLastName" ColumnName="vcLastName" />
+          <ScalarProperty Name="vcEmail" ColumnName="vcEmail" />
+          <ScalarProperty Name="vcProfilePicturePath" ColumnName="vcProfilePicturePath" />
+          <ScalarProperty Name="vcAddress" ColumnName="vcAddress" />
+          <ScalarProperty Name="vcCountry" ColumnName="vcCountry" />
+          <ScalarProperty Name="vcState" ColumnName="vcState" />
+          <ScalarProperty Name="vcZipCode" ColumnName="vcZipCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

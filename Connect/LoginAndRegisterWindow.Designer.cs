@@ -39,12 +39,15 @@ namespace Connect
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelOrangeBtn1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.shapeContainer7 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape5 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.shapeContainer5 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -57,9 +60,11 @@ namespace Connect
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel2 = new System.Windows.Forms.Panel();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rectangleShape5 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panelOrangeBtn2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.shapeContainer6 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape10 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -70,28 +75,23 @@ namespace Connect
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.shapeContainer10 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape9 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape10 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.buttonOrangeTimer = new System.Windows.Forms.Timer(this.components);
-            this.panelOrangeBtn1 = new System.Windows.Forms.Panel();
-            this.shapeContainer7 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.panelOrangeBtn2 = new System.Windows.Forms.Panel();
-            this.shapeContainer6 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.panel1.SuspendLayout();
+            this.panelOrangeBtn1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panelOrangeBtn2.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panelOrangeBtn1.SuspendLayout();
-            this.panelOrangeBtn2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -166,6 +166,54 @@ namespace Connect
             this.panel1.Size = new System.Drawing.Size(300, 461);
             this.panel1.TabIndex = 8;
             // 
+            // panelOrangeBtn1
+            // 
+            this.panelOrangeBtn1.BackColor = System.Drawing.Color.CadetBlue;
+            this.panelOrangeBtn1.Controls.Add(this.label7);
+            this.panelOrangeBtn1.Controls.Add(this.shapeContainer7);
+            this.panelOrangeBtn1.Location = new System.Drawing.Point(116, 393);
+            this.panelOrangeBtn1.Margin = new System.Windows.Forms.Padding(0);
+            this.panelOrangeBtn1.Name = "panelOrangeBtn1";
+            this.panelOrangeBtn1.Size = new System.Drawing.Size(121, 44);
+            this.panelOrangeBtn1.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
+            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label7.Font = new System.Drawing.Font("LuzSans-Book", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(20, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 26);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Sign Up";
+            // 
+            // shapeContainer7
+            // 
+            this.shapeContainer7.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer7.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer7.Name = "shapeContainer7";
+            this.shapeContainer7.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape5});
+            this.shapeContainer7.Size = new System.Drawing.Size(121, 44);
+            this.shapeContainer7.TabIndex = 0;
+            this.shapeContainer7.TabStop = false;
+            // 
+            // rectangleShape5
+            // 
+            this.rectangleShape5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
+            this.rectangleShape5.BorderColor = System.Drawing.Color.BlanchedAlmond;
+            this.rectangleShape5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rectangleShape5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
+            this.rectangleShape5.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.rectangleShape5.Location = new System.Drawing.Point(9, 8);
+            this.rectangleShape5.Name = "rectangleShape5";
+            this.rectangleShape5.SelectionColor = System.Drawing.Color.CadetBlue;
+            this.rectangleShape5.Size = new System.Drawing.Size(102, 31);
+            this.rectangleShape5.Click += new System.EventHandler(this.rectangleShape5_Click);
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.label6);
@@ -217,19 +265,6 @@ namespace Connect
             this.rectangleShape4.Location = new System.Drawing.Point(6, 28);
             this.rectangleShape4.Name = "rectangleShape1";
             this.rectangleShape4.Size = new System.Drawing.Size(275, 36);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
-            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Font = new System.Drawing.Font("LuzSans-Book", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(20, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 26);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Sign Up";
             // 
             // panel4
             // 
@@ -354,18 +389,6 @@ namespace Connect
             this.shapeContainer2.TabIndex = 6;
             this.shapeContainer2.TabStop = false;
             // 
-            // rectangleShape5
-            // 
-            this.rectangleShape5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
-            this.rectangleShape5.BorderColor = System.Drawing.Color.BlanchedAlmond;
-            this.rectangleShape5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rectangleShape5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
-            this.rectangleShape5.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.rectangleShape5.Location = new System.Drawing.Point(9, 8);
-            this.rectangleShape5.Name = "rectangleShape5";
-            this.rectangleShape5.SelectionColor = System.Drawing.Color.CadetBlue;
-            this.rectangleShape5.Size = new System.Drawing.Size(102, 31);
-            // 
             // panel6
             // 
             this.panel6.AutoSize = true;
@@ -380,6 +403,16 @@ namespace Connect
             this.panel6.Size = new System.Drawing.Size(293, 461);
             this.panel6.TabIndex = 12;
             // 
+            // panelOrangeBtn2
+            // 
+            this.panelOrangeBtn2.BackColor = System.Drawing.Color.CadetBlue;
+            this.panelOrangeBtn2.Controls.Add(this.label8);
+            this.panelOrangeBtn2.Controls.Add(this.shapeContainer6);
+            this.panelOrangeBtn2.Location = new System.Drawing.Point(116, 390);
+            this.panelOrangeBtn2.Name = "panelOrangeBtn2";
+            this.panelOrangeBtn2.Size = new System.Drawing.Size(115, 47);
+            this.panelOrangeBtn2.TabIndex = 15;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -391,7 +424,29 @@ namespace Connect
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 26);
             this.label8.TabIndex = 9;
-            this.label8.Text = "Sign In";            // 
+            this.label8.Text = "Sign In";
+            // 
+            // shapeContainer6
+            // 
+            this.shapeContainer6.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer6.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer6.Name = "shapeContainer6";
+            this.shapeContainer6.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape10});
+            this.shapeContainer6.Size = new System.Drawing.Size(115, 47);
+            this.shapeContainer6.TabIndex = 0;
+            this.shapeContainer6.TabStop = false;
+            // 
+            // rectangleShape10
+            // 
+            this.rectangleShape10.BorderColor = System.Drawing.Color.BlanchedAlmond;
+            this.rectangleShape10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rectangleShape10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
+            this.rectangleShape10.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.rectangleShape10.Location = new System.Drawing.Point(6, 10);
+            this.rectangleShape10.Name = "rectangleShape5";
+            this.rectangleShape10.Size = new System.Drawing.Size(102, 30);
+            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.label11);
@@ -494,18 +549,6 @@ namespace Connect
             this.rectangleShape9.Name = "rectangleShape1";
             this.rectangleShape9.Size = new System.Drawing.Size(275, 36);
             // 
-            // rectangleShape10
-            // 
-            this.rectangleShape10.BorderColor = System.Drawing.Color.BlanchedAlmond;
-            this.rectangleShape10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rectangleShape10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
-            this.rectangleShape10.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.rectangleShape10.Location = new System.Drawing.Point(6, 10);
-            this.rectangleShape10.Name = "rectangleShape5";this.rectangleShape10.Size = new System.Drawing.Size(102, 30);
-            //this.rectangleShape10.Click += new System.EventHandler(this.rectangleShape5_Click);
-            //this.rectangleShape10.MouseHover += new System.EventHandler(this.rectangleShape5_MouseHover);
-            //this.rectangleShape10.MouseLeave += new System.EventHandler(this.rectangleShape5_MouseLeave);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSize = true;
@@ -560,49 +603,6 @@ namespace Connect
             // 
             this.buttonOrangeTimer.Enabled = true;
             // 
-            // panelOrangeBtn1
-            // 
-            this.panelOrangeBtn1.BackColor = System.Drawing.Color.CadetBlue;
-            this.panelOrangeBtn1.Controls.Add(this.label7);
-            this.panelOrangeBtn1.Controls.Add(this.shapeContainer7);
-            this.panelOrangeBtn1.Location = new System.Drawing.Point(116, 393);
-            this.panelOrangeBtn1.Margin = new System.Windows.Forms.Padding(0);
-            this.panelOrangeBtn1.Name = "panelOrangeBtn1";
-            this.panelOrangeBtn1.Size = new System.Drawing.Size(121, 44);
-            this.panelOrangeBtn1.TabIndex = 14;
-            // 
-            // shapeContainer7
-            // 
-            this.shapeContainer7.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer7.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer7.Name = "shapeContainer7";
-            this.shapeContainer7.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape5});
-            this.shapeContainer7.Size = new System.Drawing.Size(121, 44);
-            this.shapeContainer7.TabIndex = 0;
-            this.shapeContainer7.TabStop = false;
-            // 
-            // panelOrangeBtn2
-            // 
-            this.panelOrangeBtn2.BackColor = System.Drawing.Color.CadetBlue;
-            this.panelOrangeBtn2.Controls.Add(this.label8);
-            this.panelOrangeBtn2.Controls.Add(this.shapeContainer6);
-            this.panelOrangeBtn2.Location = new System.Drawing.Point(116, 390);
-            this.panelOrangeBtn2.Name = "panelOrangeBtn2";
-            this.panelOrangeBtn2.Size = new System.Drawing.Size(115, 47);
-            this.panelOrangeBtn2.TabIndex = 15;
-            // 
-            // shapeContainer6
-            // 
-            this.shapeContainer6.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer6.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer6.Name = "shapeContainer6";
-            this.shapeContainer6.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape10});
-            this.shapeContainer6.Size = new System.Drawing.Size(115, 47);
-            this.shapeContainer6.TabIndex = 0;
-            this.shapeContainer6.TabStop = false;
-            // 
             // LoginAndRegisterWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -615,6 +615,8 @@ namespace Connect
             this.Text = "LoginAndRegister";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelOrangeBtn1.ResumeLayout(false);
+            this.panelOrangeBtn1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -625,6 +627,8 @@ namespace Connect
             this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panelOrangeBtn2.ResumeLayout(false);
+            this.panelOrangeBtn2.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -632,10 +636,6 @@ namespace Connect
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel7.ResumeLayout(false);
-            this.panelOrangeBtn1.ResumeLayout(false);
-            this.panelOrangeBtn1.PerformLayout();
-            this.panelOrangeBtn2.ResumeLayout(false);
-            this.panelOrangeBtn2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

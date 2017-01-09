@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConnectPersonalServerModelStoreContainer" CdmEntityContainer="ConnectPersonalServerEntities">
+    <EntitySetMapping Name="Account_Type">
+      <EntityTypeMapping TypeName="ConnectPersonalServerModel.Account_Type">
+        <MappingFragment StoreEntitySet="Account_Type">
+          <ScalarProperty Name="iA_Tid" ColumnName="iA_Tid" />
+          <ScalarProperty Name="vcType" ColumnName="vcType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bank_Details">
+      <EntityTypeMapping TypeName="ConnectPersonalServerModel.Bank_Details">
+        <MappingFragment StoreEntitySet="Bank_Details">
+          <ScalarProperty Name="iB_Did" ColumnName="iB_Did" />
+          <ScalarProperty Name="vcBankName" ColumnName="vcBankName" />
+          <ScalarProperty Name="vcBankHqLocation" ColumnName="vcBankHqLocation" />
+          <ScalarProperty Name="vcBankPhoneNo" ColumnName="vcBankPhoneNo" />
+          <ScalarProperty Name="vcBankEmail" ColumnName="vcBankEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buyer_Details">
+      <EntityTypeMapping TypeName="ConnectPersonalServerModel.Buyer_Details">
+        <MappingFragment StoreEntitySet="Buyer_Details">
+          <ScalarProperty Name="iB_Did" ColumnName="iB_Did" />
+          <ScalarProperty Name="iFKUser_DetailsId" ColumnName="iFKUser_DetailsId" />
+          <ScalarProperty Name="dDataBought" ColumnName="dDataBought" />
+          <ScalarProperty Name="dDataUsed" ColumnName="dDataUsed" />
+          <ScalarProperty Name="iHasExpired" ColumnName="iHasExpired" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Data_Usage_Log">
+      <EntityTypeMapping TypeName="ConnectPersonalServerModel.Data_Usage_Log">
+        <MappingFragment StoreEntitySet="Data_Usage_Log">
+          <ScalarProperty Name="iD_U_Lid" ColumnName="iD_U_Lid" />
+          <ScalarProperty Name="iFKBuyer_User_DetailsId" ColumnName="iFKBuyer_User_DetailsId" />
+          <ScalarProperty Name="dDataUsed" ColumnName="dDataUsed" />
+          <ScalarProperty Name="dtDateUsed" ColumnName="dtDateUsed" />
+          <ScalarProperty Name="iFKSellers_LoginId" ColumnName="iFKSellers_LoginId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sellers_Login">
+      <EntityTypeMapping TypeName="ConnectPersonalServerModel.Sellers_Login">
+        <MappingFragment StoreEntitySet="Sellers_Login">
+          <ScalarProperty Name="iS_Lid" ColumnName="iS_Lid" />
+          <ScalarProperty Name="iFK_User_DetailsId" ColumnName="iFK_User_DetailsId" />
+          <ScalarProperty Name="vcUsername" ColumnName="vcUsername" />
+          <ScalarProperty Name="vcLoginPassword" ColumnName="vcLoginPassword" />
+          <ScalarProperty Name="dtDateAddedOrUpdated" ColumnName="dtDateAddedOrUpdated" />
+          <ScalarProperty Name="iHasExpired" ColumnName="iHasExpired" />
+          <ScalarProperty Name="dDataBalance" ColumnName="dDataBalance" />
+          <ScalarProperty Name="dDataSizeAsAtTimeOfUpload" ColumnName="dDataSizeAsAtTimeOfUpload" />
+          <ScalarProperty Name="dDataUsedByCustomers" ColumnName="dDataUsedByCustomers" />
+          <ScalarProperty Name="iIsLoginInUse" ColumnName="iIsLoginInUse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Bank_Details">
+      <EntityTypeMapping TypeName="ConnectPersonalServerModel.User_Bank_Details">
+        <MappingFragment StoreEntitySet="User_Bank_Details">
+          <ScalarProperty Name="iU_B_Did" ColumnName="iU_B_Did" />
+          <ScalarProperty Name="iAccountNo" ColumnName="iAccountNo" />
+          <ScalarProperty Name="iFK_Bank_DetailsId" ColumnName="iFK_Bank_DetailsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Details">
+      <EntityTypeMapping TypeName="ConnectPersonalServerModel.User_Details">
+        <MappingFragment StoreEntitySet="User_Details">
+          <ScalarProperty Name="iU_Did" ColumnName="iU_Did" />
+          <ScalarProperty Name="vcFirstName" ColumnName="vcFirstName" />
+          <ScalarProperty Name="vcMiddleName" ColumnName="vcMiddleName" />
+          <ScalarProperty Name="vcLastName" ColumnName="vcLastName" />
+          <ScalarProperty Name="vcEmail" ColumnName="vcEmail" />
+          <ScalarProperty Name="vcPassword" ColumnName="vcPassword" />
+          <ScalarProperty Name="cSex" ColumnName="cSex" />
+          <ScalarProperty Name="dDOB" ColumnName="dDOB" />
+          <ScalarProperty Name="iProfilePictureId" ColumnName="iProfilePictureId" />
+          <ScalarProperty Name="vcAddress" ColumnName="vcAddress" />
+          <ScalarProperty Name="iFK_AccountTypeId" ColumnName="iFK_AccountTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Withrawal_Table">
+      <EntityTypeMapping TypeName="ConnectPersonalServerModel.Withrawal_Table">
+        <MappingFragment StoreEntitySet="Withrawal_Table">
+          <ScalarProperty Name="iW_Tid" ColumnName="iW_Tid" />
+          <ScalarProperty Name="iFKUser_DetailsId" ColumnName="iFKUser_DetailsId" />
+          <ScalarProperty Name="iUserId" ColumnName="iUserId" />
+          <ScalarProperty Name="mAmountWithrawn" ColumnName="mAmountWithrawn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

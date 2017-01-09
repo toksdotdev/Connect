@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d92247db63264d1e80da70d3250bf345" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="ConnectPersonalServerModel.Account_Type" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectPersonalServerModel.Bank_Details" Width="1.5" PointX="7.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectPersonalServerModel.Buyer_Details" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectPersonalServerModel.Data_Usage_Log" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectPersonalServerModel.Sellers_Login" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectPersonalServerModel.User_Bank_Details" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectPersonalServerModel.User_Details" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConnectPersonalServerModel.Withrawal_Table" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <AssociationConnector Association="ConnectPersonalServerModel.fkAccount_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="ConnectPersonalServerModel.fkBank_Details" ManuallyRouted="false" />
+        <AssociationConnector Association="ConnectPersonalServerModel.fkBuyer_User_Details" ManuallyRouted="false" />
+        <AssociationConnector Association="ConnectPersonalServerModel.fkBuyer_User_Log_Details" ManuallyRouted="false" />
+        <AssociationConnector Association="ConnectPersonalServerModel.fkSellers_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="ConnectPersonalServerModel.fkUser_Details" ManuallyRouted="false" />
+        <AssociationConnector Association="ConnectPersonalServerModel.fkUser_Details_for_withdrawal" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

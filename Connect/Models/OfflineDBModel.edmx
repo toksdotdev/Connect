@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ConnectOfflineDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ConnectOfflineDBModelStoreContainer">
+          <EntitySet Name="Account_Type_OfflineTable" EntityType="ConnectOfflineDBModel.Store.Account_Type_OfflineTable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Buyer_Details_OfflineTable" EntityType="ConnectOfflineDBModel.Store.Buyer_Details_OfflineTable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sellers_Login_OfflineTable" EntityType="ConnectOfflineDBModel.Store.Sellers_Login_OfflineTable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User_Details_OfflineTable" EntityType="ConnectOfflineDBModel.Store.User_Details_OfflineTable" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fkOfflineAccount_Type" Association="ConnectOfflineDBModel.Store.fkOfflineAccount_Type">
+            <End Role="Account_Type_OfflineTable" EntitySet="Account_Type_OfflineTable" />
+            <End Role="User_Details_OfflineTable" EntitySet="User_Details_OfflineTable" />
+          </AssociationSet>
+          <AssociationSet Name="fkUser_Details_for_BuyerOffline" Association="ConnectOfflineDBModel.Store.fkUser_Details_for_BuyerOffline">
+            <End Role="User_Details_OfflineTable" EntitySet="User_Details_OfflineTable" />
+            <End Role="Buyer_Details_OfflineTable" EntitySet="Buyer_Details_OfflineTable" />
+          </AssociationSet>
+          <AssociationSet Name="fkUser_Details_for_SellerOffline" Association="ConnectOfflineDBModel.Store.fkUser_Details_for_SellerOffline">
+            <End Role="User_Details_OfflineTable" EntitySet="User_Details_OfflineTable" />
+            <End Role="Sellers_Login_OfflineTable" EntitySet="Sellers_Login_OfflineTable" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account_Type_OfflineTable">
+          <Key>
+            <PropertyRef Name="iA_Tid" />
+          </Key>
+          <Property Name="iA_Tid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vcType" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Buyer_Details_OfflineTable">
+          <Key>
+            <PropertyRef Name="iB_Did" />
+          </Key>
+          <Property Name="iB_Did" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="iFKBuyer_DetailsId" Type="int" Nullable="false" />
+          <Property Name="dDataBought" Type="float" Nullable="false" />
+          <Property Name="dDataUsed" Type="float" Nullable="false" />
+          <Property Name="iHasExpired" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sellers_Login_OfflineTable">
+          <Key>
+            <PropertyRef Name="iS_Lid" />
+          </Key>
+          <Property Name="iS_Lid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="iFKUser_DetailsId" Type="int" Nullable="false" />
+          <Property Name="dDataSizeAsAtTimeOfUpload" Type="float" Nullable="false" />
+          <Property Name="dDataUsedByCustomers" Type="float" Nullable="false" />
+          <Property Name="iHasExpired" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_Details_OfflineTable">
+          <Key>
+            <PropertyRef Name="iU_Did" />
+          </Key>
+          <Property Name="iU_Did" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="iFK_AccountTypeId" Type="int" Nullable="false" />
+          <Property Name="vcFirstName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="vcLastName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="vcEmail" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="vcProfilePicturePath" Type="nvarchar" MaxLength="100" />
+          <Property Name="vcAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="vcCountry" Type="nvarchar" MaxLength="30" />
+          <Property Name="vcState" Type="nvarchar" MaxLength="30" />
+          <Property Name="vcZipCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="fkOfflineAccount_Type">
+          <End Role="Account_Type_OfflineTable" Type="ConnectOfflineDBModel.Store.Account_Type_OfflineTable" Multiplicity="1" />
+          <End Role="User_Details_OfflineTable" Type="ConnectOfflineDBModel.Store.User_Details_OfflineTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account_Type_OfflineTable">
+              <PropertyRef Name="iA_Tid" />
+            </Principal>
+            <Dependent Role="User_Details_OfflineTable">
+              <PropertyRef Name="iFK_AccountTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUser_Details_for_BuyerOffline">
+          <End Role="User_Details_OfflineTable" Type="ConnectOfflineDBModel.Store.User_Details_OfflineTable" Multiplicity="1" />
+          <End Role="Buyer_Details_OfflineTable" Type="ConnectOfflineDBModel.Store.Buyer_Details_OfflineTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Details_OfflineTable">
+              <PropertyRef Name="iU_Did" />
+            </Principal>
+            <Dependent Role="Buyer_Details_OfflineTable">
+              <PropertyRef Name="iFKBuyer_DetailsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUser_Details_for_SellerOffline">
+          <End Role="User_Details_OfflineTable" Type="ConnectOfflineDBModel.Store.User_Details_OfflineTable" Multiplicity="1" />
+          <End Role="Sellers_Login_OfflineTable" Type="ConnectOfflineDBModel.Store.Sellers_Login_OfflineTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Details_OfflineTable">
+              <PropertyRef Name="iU_Did" />
+            </Principal>
+            <Dependent Role="Sellers_Login_OfflineTable">
+              <PropertyRef Name="iFKUser_DetailsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConnectOfflineDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ConnectOfflineDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Account_Type_OfflineTable" EntityType="ConnectOfflineDBModel.Account_Type_OfflineTable" />
+          <EntitySet Name="Buyer_Details_OfflineTable" EntityType="ConnectOfflineDBModel.Buyer_Details_OfflineTable" />
+          <EntitySet Name="Sellers_Login_OfflineTable" EntityType="ConnectOfflineDBModel.Sellers_Login_OfflineTable" />
+          <EntitySet Name="User_Details_OfflineTable" EntityType="ConnectOfflineDBModel.User_Details_OfflineTable" />
+          <AssociationSet Name="fkOfflineAccount_Type" Association="ConnectOfflineDBModel.fkOfflineAccount_Type">
+            <End Role="Account_Type_OfflineTable" EntitySet="Account_Type_OfflineTable" />
+            <End Role="User_Details_OfflineTable" EntitySet="User_Details_OfflineTable" />
+          </AssociationSet>
+          <AssociationSet Name="fkUser_Details_for_BuyerOffline" Association="ConnectOfflineDBModel.fkUser_Details_for_BuyerOffline">
+            <End Role="User_Details_OfflineTable" EntitySet="User_Details_OfflineTable" />
+            <End Role="Buyer_Details_OfflineTable" EntitySet="Buyer_Details_OfflineTable" />
+          </AssociationSet>
+          <AssociationSet Name="fkUser_Details_for_SellerOffline" Association="ConnectOfflineDBModel.fkUser_Details_for_SellerOffline">
+            <End Role="User_Details_OfflineTable" EntitySet="User_Details_OfflineTable" />
+            <End Role="Sellers_Login_OfflineTable" EntitySet="Sellers_Login_OfflineTable" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account_Type_OfflineTable">
+          <Key>
+            <PropertyRef Name="iA_Tid" />
+          </Key>
+          <Property Name="iA_Tid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vcType" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="User_Details_OfflineTable" Relationship="ConnectOfflineDBModel.fkOfflineAccount_Type" FromRole="Account_Type_OfflineTable" ToRole="User_Details_OfflineTable" />
+        </EntityType>
+        <EntityType Name="Buyer_Details_OfflineTable">
+          <Key>
+            <PropertyRef Name="iB_Did" />
+          </Key>
+          <Property Name="iB_Did" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="iFKBuyer_DetailsId" Type="Int32" Nullable="false" />
+          <Property Name="dDataBought" Type="Double" Nullable="false" />
+          <Property Name="dDataUsed" Type="Double" Nullable="false" />
+          <Property Name="iHasExpired" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="User_Details_OfflineTable" Relationship="ConnectOfflineDBModel.fkUser_Details_for_BuyerOffline" FromRole="Buyer_Details_OfflineTable" ToRole="User_Details_OfflineTable" />
+        </EntityType>
+        <EntityType Name="Sellers_Login_OfflineTable">
+          <Key>
+            <PropertyRef Name="iS_Lid" />
+          </Key>
+          <Property Name="iS_Lid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="iFKUser_DetailsId" Type="Int32" Nullable="false" />
+          <Property Name="dDataSizeAsAtTimeOfUpload" Type="Double" Nullable="false" />
+          <Property Name="dDataUsedByCustomers" Type="Double" Nullable="false" />
+          <Property Name="iHasExpired" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="User_Details_OfflineTable" Relationship="ConnectOfflineDBModel.fkUser_Details_for_SellerOffline" FromRole="Sellers_Login_OfflineTable" ToRole="User_Details_OfflineTable" />
+        </EntityType>
+        <EntityType Name="User_Details_OfflineTable">
+          <Key>
+            <PropertyRef Name="iU_Did" />
+          </Key>
+          <Property Name="iU_Did" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="iFK_AccountTypeId" Type="Int32" Nullable="false" />
+          <Property Name="vcFirstName" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="vcLastName" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="vcEmail" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="vcProfilePicturePath" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="vcAddress" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="vcCountry" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="vcState" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="vcZipCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Account_Type_OfflineTable" Relationship="ConnectOfflineDBModel.fkOfflineAccount_Type" FromRole="User_Details_OfflineTable" ToRole="Account_Type_OfflineTable" />
+          <NavigationProperty Name="Buyer_Details_OfflineTable" Relationship="ConnectOfflineDBModel.fkUser_Details_for_BuyerOffline" FromRole="User_Details_OfflineTable" ToRole="Buyer_Details_OfflineTable" />
+          <NavigationProperty Name="Sellers_Login_OfflineTable" Relationship="ConnectOfflineDBModel.fkUser_Details_for_SellerOffline" FromRole="User_Details_OfflineTable" ToRole="Sellers_Login_OfflineTable" />
+        </EntityType>
+        <Association Name="fkOfflineAccount_Type">
+          <End Role="Account_Type_OfflineTable" Type="ConnectOfflineDBModel.Account_Type_OfflineTable" Multiplicity="1" />
+          <End Role="User_Details_OfflineTable" Type="ConnectOfflineDBModel.User_Details_OfflineTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account_Type_OfflineTable">
+              <PropertyRef Name="iA_Tid" />
+            </Principal>
+            <Dependent Role="User_Details_OfflineTable">
+              <PropertyRef Name="iFK_AccountTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUser_Details_for_BuyerOffline">
+          <End Role="User_Details_OfflineTable" Type="ConnectOfflineDBModel.User_Details_OfflineTable" Multiplicity="1" />
+          <End Role="Buyer_Details_OfflineTable" Type="ConnectOfflineDBModel.Buyer_Details_OfflineTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Details_OfflineTable">
+              <PropertyRef Name="iU_Did" />
+            </Principal>
+            <Dependent Role="Buyer_Details_OfflineTable">
+              <PropertyRef Name="iFKBuyer_DetailsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUser_Details_for_SellerOffline">
+          <End Role="User_Details_OfflineTable" Type="ConnectOfflineDBModel.User_Details_OfflineTable" Multiplicity="1" />
+          <End Role="Sellers_Login_OfflineTable" Type="ConnectOfflineDBModel.Sellers_Login_OfflineTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Details_OfflineTable">
+              <PropertyRef Name="iU_Did" />
+            </Principal>
+            <Dependent Role="Sellers_Login_OfflineTable">
+              <PropertyRef Name="iFKUser_DetailsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConnectOfflineDBModelStoreContainer" CdmEntityContainer="ConnectOfflineDBEntities">
+          <EntitySetMapping Name="Account_Type_OfflineTable">
+            <EntityTypeMapping TypeName="ConnectOfflineDBModel.Account_Type_OfflineTable">
+              <MappingFragment StoreEntitySet="Account_Type_OfflineTable">
+                <ScalarProperty Name="iA_Tid" ColumnName="iA_Tid" />
+                <ScalarProperty Name="vcType" ColumnName="vcType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buyer_Details_OfflineTable">
+            <EntityTypeMapping TypeName="ConnectOfflineDBModel.Buyer_Details_OfflineTable">
+              <MappingFragment StoreEntitySet="Buyer_Details_OfflineTable">
+                <ScalarProperty Name="iB_Did" ColumnName="iB_Did" />
+                <ScalarProperty Name="iFKBuyer_DetailsId" ColumnName="iFKBuyer_DetailsId" />
+                <ScalarProperty Name="dDataBought" ColumnName="dDataBought" />
+                <ScalarProperty Name="dDataUsed" ColumnName="dDataUsed" />
+                <ScalarProperty Name="iHasExpired" ColumnName="iHasExpired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sellers_Login_OfflineTable">
+            <EntityTypeMapping TypeName="ConnectOfflineDBModel.Sellers_Login_OfflineTable">
+              <MappingFragment StoreEntitySet="Sellers_Login_OfflineTable">
+                <ScalarProperty Name="iS_Lid" ColumnName="iS_Lid" />
+                <ScalarProperty Name="iFKUser_DetailsId" ColumnName="iFKUser_DetailsId" />
+                <ScalarProperty Name="dDataSizeAsAtTimeOfUpload" ColumnName="dDataSizeAsAtTimeOfUpload" />
+                <ScalarProperty Name="dDataUsedByCustomers" ColumnName="dDataUsedByCustomers" />
+                <ScalarProperty Name="iHasExpired" ColumnName="iHasExpired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Details_OfflineTable">
+            <EntityTypeMapping TypeName="ConnectOfflineDBModel.User_Details_OfflineTable">
+              <MappingFragment StoreEntitySet="User_Details_OfflineTable">
+                <ScalarProperty Name="iU_Did" ColumnName="iU_Did" />
+                <ScalarProperty Name="iFK_AccountTypeId" ColumnName="iFK_AccountTypeId" />
+                <ScalarProperty Name="vcFirstName" ColumnName="vcFirstName" />
+                <ScalarProperty Name="vcLastName" ColumnName="vcLastName" />
+                <ScalarProperty Name="vcEmail" ColumnName="vcEmail" />
+                <ScalarProperty Name="vcProfilePicturePath" ColumnName="vcProfilePicturePath" />
+                <ScalarProperty Name="vcAddress" ColumnName="vcAddress" />
+                <ScalarProperty Name="vcCountry" ColumnName="vcCountry" />
+                <ScalarProperty Name="vcState" ColumnName="vcState" />
+                <ScalarProperty Name="vcZipCode" ColumnName="vcZipCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

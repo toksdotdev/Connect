@@ -234,4 +234,10 @@
   <data name="PingUri" xml:space="preserve">
     <value>www.connect.ng</value>
   </data>
+  <data name="ServerPictureFolder" xml:space="preserve">
+    <value>www.connect.ng/images/upload</value>
+  </data>
+  <data name="LoggedInUserEmail" xml:space="preserve">
+    <value />
+  </data>
 </root>

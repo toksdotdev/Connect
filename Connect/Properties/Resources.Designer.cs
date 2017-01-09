@@ -255,6 +255,15 @@ namespace Connect.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string LoggedInUserEmail {
+            get {
+                return ResourceManager.GetString("LoggedInUserEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Logout_Rounded_Left_32px {
@@ -388,6 +397,15 @@ namespace Connect.Properties {
         internal static string PricePer100MB {
             get {
                 return ResourceManager.GetString("PricePer100MB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to www.connect.ng/images/upload.
+        /// </summary>
+        internal static string ServerPictureFolder {
+            get {
+                return ResourceManager.GetString("ServerPictureFolder", resourceCulture);
             }
         }
         

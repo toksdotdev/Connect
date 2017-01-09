@@ -14,3 +14,5 @@ C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\obj\D
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\obj\Debug\Connect.exe.licenses
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\obj\Debug\Connect.csprojResolveAssemblyReference.cache
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\obj\Debug\Connect.SellDataWindow.resources
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\bin\Debug\EntityFramework.dll
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\Connect\Connect\bin\Debug\EntityFramework.xml

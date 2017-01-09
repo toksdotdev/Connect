@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConnectPersonalServerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ConnectPersonalServerModelStoreContainer">
+    <EntitySet Name="Account_Type" EntityType="ConnectPersonalServerModel.Store.Account_Type" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bank_Details" EntityType="ConnectPersonalServerModel.Store.Bank_Details" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Buyer_Details" EntityType="ConnectPersonalServerModel.Store.Buyer_Details" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Data_Usage_Log" EntityType="ConnectPersonalServerModel.Store.Data_Usage_Log" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sellers_Login" EntityType="ConnectPersonalServerModel.Store.Sellers_Login" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User_Bank_Details" EntityType="ConnectPersonalServerModel.Store.User_Bank_Details" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User_Details" EntityType="ConnectPersonalServerModel.Store.User_Details" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Withrawal_Table" EntityType="ConnectPersonalServerModel.Store.Withrawal_Table" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="fkAccount_Type" Association="ConnectPersonalServerModel.Store.fkAccount_Type">
+      <End Role="Account_Type" EntitySet="Account_Type" />
+      <End Role="User_Details" EntitySet="User_Details" />
+    </AssociationSet>
+    <AssociationSet Name="fkBank_Details" Association="ConnectPersonalServerModel.Store.fkBank_Details">
+      <End Role="Bank_Details" EntitySet="Bank_Details" />
+      <End Role="User_Bank_Details" EntitySet="User_Bank_Details" />
+    </AssociationSet>
+    <AssociationSet Name="fkBuyer_User_Details" Association="ConnectPersonalServerModel.Store.fkBuyer_User_Details">
+      <End Role="User_Details" EntitySet="User_Details" />
+      <End Role="Buyer_Details" EntitySet="Buyer_Details" />
+    </AssociationSet>
+    <AssociationSet Name="fkBuyer_User_Log_Details" Association="ConnectPersonalServerModel.Store.fkBuyer_User_Log_Details">
+      <End Role="User_Details" EntitySet="User_Details" />
+      <End Role="Data_Usage_Log" EntitySet="Data_Usage_Log" />
+    </AssociationSet>
+    <AssociationSet Name="fkSellers_Login" Association="ConnectPersonalServerModel.Store.fkSellers_Login">
+      <End Role="Sellers_Login" EntitySet="Sellers_Login" />
+      <End Role="Data_Usage_Log" EntitySet="Data_Usage_Log" />
+    </AssociationSet>
+    <AssociationSet Name="fkUser_Details" Association="ConnectPersonalServerModel.Store.fkUser_Details">
+      <End Role="User_Details" EntitySet="User_Details" />
+      <End Role="Sellers_Login" EntitySet="Sellers_Login" />
+    </AssociationSet>
+    <AssociationSet Name="fkUser_Details_for_withdrawal" Association="ConnectPersonalServerModel.Store.fkUser_Details_for_withdrawal">
+      <End Role="User_Details" EntitySet="User_Details" />
+      <End Role="Withrawal_Table" EntitySet="Withrawal_Table" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Account_Type">
+    <Key>
+      <PropertyRef Name="iA_Tid" />
+    </Key>
+    <Property Name="iA_Tid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vcType" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Bank_Details">
+    <Key>
+      <PropertyRef Name="iB_Did" />
+    </Key>
+    <Property Name="iB_Did" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vcBankName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="vcBankHqLocation" Type="varchar" MaxLength="100" />
+    <Property Name="vcBankPhoneNo" Type="varchar" MaxLength="20" />
+    <Property Name="vcBankEmail" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Buyer_Details">
+    <Key>
+      <PropertyRef Name="iB_Did" />
+    </Key>
+    <Property Name="iB_Did" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="iFKUser_DetailsId" Type="int" Nullable="false" />
+    <Property Name="dDataBought" Type="decimal" Nullable="false" />
+    <Property Name="dDataUsed" Type="decimal" Nullable="false" />
+    <Property Name="iHasExpired" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Data_Usage_Log">
+    <Key>
+      <PropertyRef Name="iD_U_Lid" />
+    </Key>
+    <Property Name="iD_U_Lid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="iFKBuyer_User_DetailsId" Type="int" Nullable="false" />
+    <Property Name="dDataUsed" Type="decimal" Nullable="false" />
+    <Property Name="dtDateUsed" Type="datetime" Nullable="false" />
+    <Property Name="iFKSellers_LoginId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sellers_Login">
+    <Key>
+      <PropertyRef Name="iS_Lid" />
+    </Key>
+    <Property Name="iS_Lid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="iFK_User_DetailsId" Type="int" Nullable="false" />
+    <Property Name="vcUsername" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="vcLoginPassword" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="dtDateAddedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="iHasExpired" Type="bit" Nullable="false" />
+    <Property Name="dDataBalance" Type="decimal" Nullable="false" />
+    <Property Name="dDataSizeAsAtTimeOfUpload" Type="decimal" Nullable="false" />
+    <Property Name="dDataUsedByCustomers" Type="decimal" Nullable="false" />
+    <Property Name="iIsLoginInUse" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Bank_Details">
+    <Key>
+      <PropertyRef Name="iU_B_Did" />
+    </Key>
+    <Property Name="iU_B_Did" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="iAccountNo" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="iFK_Bank_DetailsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Details">
+    <Key>
+      <PropertyRef Name="iU_Did" />
+    </Key>
+    <Property Name="iU_Did" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vcFirstName" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="vcMiddleName" Type="varchar" MaxLength="30" />
+    <Property Name="vcLastName" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="vcEmail" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="vcPassword" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="cSex" Type="char" MaxLength="1" />
+    <Property Name="dDOB" Type="datetime" />
+    <Property Name="iProfilePictureId" Type="int" />
+    <Property Name="vcAddress" Type="varchar" MaxLength="100" />
+    <Property Name="iFK_AccountTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Withrawal_Table">
+    <Key>
+      <PropertyRef Name="iW_Tid" />
+    </Key>
+    <Property Name="iW_Tid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="iFKUser_DetailsId" Type="int" Nullable="false" />
+    <Property Name="iUserId" Type="int" Nullable="false" />
+    <Property Name="mAmountWithrawn" Type="money" Nullable="false" />
+  </EntityType>
+  <Association Name="fkAccount_Type">
+    <End Role="Account_Type" Type="ConnectPersonalServerModel.Store.Account_Type" Multiplicity="1" />
+    <End Role="User_Details" Type="ConnectPersonalServerModel.Store.User_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account_Type">
+        <PropertyRef Name="iA_Tid" />
+      </Principal>
+      <Dependent Role="User_Details">
+        <PropertyRef Name="iFK_AccountTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkBank_Details">
+    <End Role="Bank_Details" Type="ConnectPersonalServerModel.Store.Bank_Details" Multiplicity="1" />
+    <End Role="User_Bank_Details" Type="ConnectPersonalServerModel.Store.User_Bank_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bank_Details">
+        <PropertyRef Name="iB_Did" />
+      </Principal>
+      <Dependent Role="User_Bank_Details">
+        <PropertyRef Name="iFK_Bank_DetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkBuyer_User_Details">
+    <End Role="User_Details" Type="ConnectPersonalServerModel.Store.User_Details" Multiplicity="1" />
+    <End Role="Buyer_Details" Type="ConnectPersonalServerModel.Store.Buyer_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Details">
+        <PropertyRef Name="iU_Did" />
+      </Principal>
+      <Dependent Role="Buyer_Details">
+        <PropertyRef Name="iFKUser_DetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkBuyer_User_Log_Details">
+    <End Role="User_Details" Type="ConnectPersonalServerModel.Store.User_Details" Multiplicity="1" />
+    <End Role="Data_Usage_Log" Type="ConnectPersonalServerModel.Store.Data_Usage_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Details">
+        <PropertyRef Name="iU_Did" />
+      </Principal>
+      <Dependent Role="Data_Usage_Log">
+        <PropertyRef Name="iFKBuyer_User_DetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkSellers_Login">
+    <End Role="Sellers_Login" Type="ConnectPersonalServerModel.Store.Sellers_Login" Multiplicity="1" />
+    <End Role="Data_Usage_Log" Type="ConnectPersonalServerModel.Store.Data_Usage_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sellers_Login">
+        <PropertyRef Name="iS_Lid" />
+      </Principal>
+      <Dependent Role="Data_Usage_Log">
+        <PropertyRef Name="iFKSellers_LoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkUser_Details">
+    <End Role="User_Details" Type="ConnectPersonalServerModel.Store.User_Details" Multiplicity="1" />
+    <End Role="Sellers_Login" Type="ConnectPersonalServerModel.Store.Sellers_Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Details">
+        <PropertyRef Name="iU_Did" />
+      </Principal>
+      <Dependent Role="Sellers_Login">
+        <PropertyRef Name="iFK_User_DetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkUser_Details_for_withdrawal">
+    <End Role="User_Details" Type="ConnectPersonalServerModel.Store.User_Details" Multiplicity="1" />
+    <End Role="Withrawal_Table" Type="ConnectPersonalServerModel.Store.Withrawal_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Details">
+        <PropertyRef Name="iU_Did" />
+      </Principal>
+      <Dependent Role="Withrawal_Table">
+        <PropertyRef Name="iFKUser_DetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

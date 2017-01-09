@@ -13,9 +13,10 @@ namespace Connect
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow(true));
+            //Application.Run(new MainWindow(true));
             //Application.Run(new SellDataWindow());
             //Application.Run(new PurchaseWindow());
+            Application.Run(new LoginAndRegisterWindow());
         }
     }
 }
